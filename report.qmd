@@ -1,0 +1,118 @@
+---
+title: "CIF Import Analysis — 2024 vs 2025"
+author: "Utamiu"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    theme: flatly
+    code-fold: true
+    number-sections: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## 📘 Executive Summary
+
+The comparison between 2024 and 2025 CIF import values highlights how trade policies reshaped U.S. import dynamics. In 2024, import volumes reflected a stable, pre-tariff environment dominated by major partners such as China, Mexico, and Canada. By 2025, as reciprocal tariffs and selective trade deals took effect, the composition of top-importing countries began to shift: nations granted trade deals or exempt from tariffs generally maintained or increased their export values, while those hit by tariffs experienced noticeable declines.
+
+The dual-panel visualization makes this contrast explicit—showing which partners benefited, which were insulated, and which faced contraction—providing a clear, data-driven view of the early economic impact of reciprocal-tariff policy.
+
+---
+
+## 📊 What the Charts Show
+
+- **Left Chart (2024):** Displays the Top 20 countries by CIF import value in 2024 (baseline year), using a single consistent color.  
+- **Right Chart (2025):** Shows those same countries in 2025, color-coded by policy status (Deal / Not-Hit / Tariffed).  
+- Country ordering is the same in both panels, enabling direct visual comparison of import changes and policy impact.
+
+---
+
+## 💡 Key Findings
+
+- **Policy reshaped trade flows:** Between 2024 and 2025, several major exporters saw diverging trajectories depending on tariff status.  
+- **Deal / Not-Hit resilience:** Countries with policy exemptions or deals often maintained or increased import values.  
+- **Tariffed countries declined:** Many nations subject to tariffs saw their CIF import magnitude drop.  
+- **Emerging diversification:** Some non-tariffed countries gained relative rank, hinting at supply-chain shifts.  
+- **Policy matters more than scale:** Trade policy status appears to moderate import outcomes more than baseline trade volume.
+
+---
+
+## 📈 Visualization & Code
+
+```{python}
+#| fig-width: 10
+#| fig-height: 6
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import re
+
+# Use raw content from your repo
+url = "https://raw.githubusercontent.com/utamiu1807/uutami/main/Country_CIF_Tariff_PctChange_2023_2025.xlsx"
+df = pd.read_excel(url)
+
+# Clean names
+non_year = [c for c in df.columns if not re.match(r'\d{4}', str(c))]
+df.columns = [c.strip().replace(" ", "_") if c in non_year else c for c in df.columns]
+if "Country" in df.columns:
+    df.rename(columns={"Country": "country"}, inplace=True)
+
+for y in [2023, 2024, 2025]:
+    if y in df.columns:
+        df[y] = pd.to_numeric(df[y], errors="coerce")
+
+def label_policy(r):
+    if r.get("Trump_Deal", 0) == 1:
+        return "Deal Country"
+    elif r.get("Not_Hit", 0) == 1:
+        return "Not-Hit Country"
+    else:
+        return "Tariffed Country"
+
+df["Policy_Category"] = df.apply(label_policy, axis=1)
+policy_colors = {
+    "Deal Country": "#2E86DE",
+    "Not-Hit Country": "#27AE60",
+    "Tariffed Country": "#E74C3C"
+}
+
+# Use top 20 by 2024
+top20 = df.nlargest(20, 2024)["country"].tolist()
+df2 = df[df["country"].isin(top20)].copy()
+
+order = df2.sort_values(2024, ascending=False)["country"].tolist()
+df2["country"] = pd.Categorical(df2["country"], categories=order, ordered=True)
+
+sns.set(style="whitegrid")
+fig, axes = plt.subplots(1, 2, figsize=(16, 8), sharey=True)
+
+# Left: 2024 (single color)
+d24 = df2[["country", 2024]].dropna().sort_values(2024, ascending=True)
+sns.barplot(data=d24, y="country", x=2024, color="#5DADE2", edgecolor="black", ax=axes[0])
+for i, row in enumerate(d24.itertuples()):
+    v = getattr(row, "_2")
+    axes[0].text(v * 0.98, i, f"{v/1e9:.1f}B", va="center", ha="right", color="white", weight="bold")
+
+axes[0].set_title("Top 20 CIF Import Countries (2024)")
+axes[0].set_xlabel("CIF (USD)")
+axes[0].invert_yaxis()
+
+# Right: 2025 by policy color
+d25 = df2[["country", "Policy_Category", 2025]].dropna()
+d25["country"] = pd.Categorical(d25["country"], categories=order, ordered=True)
+sns.barplot(data=d25, y="country", x=2025, hue="Policy_Category", dodge=False,
+            palette=policy_colors, edgecolor="black", ax=axes[1])
+for i, row in enumerate(d25.itertuples()):
+    v = getattr(row, "_3")
+    axes[1].text(v * 1.01, list(order).index(row.country), f"{v/1e9:.1f}B", va="center", ha="left")
+
+axes[1].set_title("Top 20 CIF Import Countries (2025)\nColor-coded by Policy")
+axes[1].set_xlabel("CIF (USD)")
+axes[1].invert_yaxis()
+axes[1].legend(title="Policy Category", bbox_to_anchor=(1,1), loc="upper left")
+
+plt.tight_layout()
+plt.show()
