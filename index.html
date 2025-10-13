@@ -1,192 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>🌍 CIF Import Analysis Dashboard (2023–2025) — Utami</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌍 CIF Import Analysis — 2024 vs 2025</title>
 <style>
   body {
-    font-family: "Inter", sans-serif;
-    background-color: #f9fbfc;
-    color: #222;
-    margin: 0;
-    line-height: 1.6;
-  }
-  header {
-    background: linear-gradient(90deg, #003366, #0073aa);
-    color: #fff;
-    padding: 2rem;
-    text-align: center;
-  }
-  header h1 { margin: 0; font-size: 2rem; }
-  header p { margin-top: 0.5rem; font-size: 1.1rem; }
-  nav {
-    background-color: #e8f1f7;
-    padding: 1rem 2rem;
-    border-bottom: 2px solid #c7dce9;
-  }
-  nav a {
-    color: #003366;
-    text-decoration: none;
-    margin-right: 1.5rem;
-    font-weight: 600;
-  }
-  section {
-    margin: 2rem auto;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 40px auto;
     max-width: 1000px;
-    padding: 1.5rem 2rem;
+    line-height: 1.6;
+    color: #222;
     background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.07);
   }
-  h2 { color: #003366; border-left: 6px solid #0073aa; padding-left: 0.5rem; }
-  h3 { color: #0073aa; margin-top: 1rem; }
-  ul, p { font-size: 1rem; }
-  .chart { text-align: center; margin: 1rem 0; }
-  img { max-width: 100%; border-radius: 8px; border: 1px solid #ccc; }
-  footer {
+  h1, h2, h3 {
+    color: #004d7a;
+  }
+  img {
+    display: block;
+    margin: 25px auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
     text-align: center;
-    background: #003366;
-    color: white;
-    padding: 1rem;
-    margin-top: 3rem;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  .center {
+    text-align: center;
   }
   .highlight {
-    background-color: #e6f4ff;
-    border-left: 4px solid #0073aa;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    margin: 1rem 0;
+    background-color: #e9f7fe;
+    padding: 10px;
+    border-left: 4px solid #0077b6;
+  }
+  a {
+    color: #0077b6;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
   }
 </style>
 </head>
-
 <body>
-<header>
-  <h1>🌍 U.S. CIF Import Analysis Dashboard (2023–2025)</h1>
-  <p>Exploring trade shifts, tariff impacts, and policy outcomes — by Utami (2025)</p>
-</header>
 
-<nav>
-  <a href="#summary">Executive Summary & Key Findings</a>
-  <a href="#methods">Data & Methods</a>
-  <a href="#eda">EDA Findings</a>
-  <a href="#regression">Regression Insights</a>
-  <a href="#appendix">Appendix</a>
-</nav>
+<h1>🌍 CIF Import Analysis — 2023 vs 2025</h1>
+<p><strong>Author:</strong> Utami<br>
+<strong>Project Type:</strong> Exploratory Data Analysis (EDA) & Regression Modeling<br>
+<strong>Live Dashboard:</strong> <a href="https://utamiu1807.github.io/uutami/">GitHub Pages</a><br>
+<strong>Repository:</strong> <a href="https://github.com/utamiu1807/uutami">utamiu1807/uutami</a></p>
 
-<!-- ✅ EXECUTIVE SUMMARY & KEY FINDINGS -->
-<section id="summary">
-  <h2>🌍 CIF Import Analysis — 2024 vs 2025</h2>
-
-  <div class="highlight">
-    <h3>📘 Executive Summary</h3>
-    <p>
-      The comparison between <strong>2024 and 2025 CIF import values</strong> highlights how trade policies
-      reshaped U.S. import dynamics. In 2024, import volumes reflected a stable, pre-tariff environment
-      dominated by major partners such as <strong>China, Mexico, and Canada</strong>. By 2025, as
-      reciprocal tariffs and selective trade deals took effect, the composition of top-importing countries began to shift:
-      nations granted trade deals or exempt from tariffs generally maintained or increased their export values,
-      while those hit by tariffs experienced noticeable declines.
-    </p>
-    <p>
-      The dual-panel visualization makes this contrast explicit — showing which partners benefited,
-      which were insulated, and which faced contraction — providing a clear, data-driven view of the
-      early economic impact of the Trump administration’s reciprocal-tariff policy.
-    </p>
-  </div>
-
-  <h3>📊 What the Charts Show</h3>
-  <ul>
-    <li><strong>Left Chart (2024):</strong> Top 20 countries by CIF import value before tariff policy changes — uniform color for baseline imports.</li>
-    <li><strong>Right Chart (2025):</strong> Same countries after reciprocal tariffs, color-coded by policy category:
-      <ul>
-        <li>🔵 <em>Deal Country</em> — formal trade deal or exemption.</li>
-        <li>🟢 <em>Not-Hit Country</em> — unaffected by reciprocal tariffs.</li>
-        <li>🔴 <em>Tariffed Country</em> — faced new or higher tariffs.</li>
-      </ul>
-    </li>
-    <li>The shared country order enables direct side-by-side comparison of expansion vs decline under the policy shift.</li>
-  </ul>
-
-  <h3>💡 Key Findings</h3>
-  <ul>
-    <li><strong>Policy reshaped trade patterns:</strong> Reciprocal tariffs in 2025 redistributed U.S. import sources.</li>
-    <li><strong>Deal and Not-Hit countries expanded:</strong> Mexico, Canada, and parts of Southeast Asia maintained growth.</li>
-    <li>Only two of the Top 20 countries — <em>Switzerland and Singapore</em> — were not hit by tariffs, explaining Switzerland’s rise in 2025 data (through August).</li>
-    <li><strong>Tariffed countries contracted:</strong> China and Germany declined notably vs 2024.</li>
-    <li><strong>Regional diversification:</strong> Non-EU Asian exporters gained share as supply chains realigned.</li>
-    <li><strong>Policy signals overrode volume:</strong> Tariff status correlated more with import change than trade size.</li>
-  </ul>
-</section>
-
-<!-- ✅ DATA & METHODS -->
-<section id="methods">
-  <h2>Data & Methods</h2>
-  <ul>
-    <li>GitHub-hosted Excel data (2023–2025, HTS-2 & HTS-4)</li>
-    <li>Pre-processing: standardization, outlier removal, percent-change computation</li>
-    <li>AI-based industry classification into nine sectors</li>
-    <li>Analysis in Google Colab using pandas, seaborn, matplotlib, statsmodels</li>
-  </ul>
-  <p>Two EDA phases revealed year-to-year, sectoral, and country-level patterns.</p>
-</section>
-
-<!-- ✅ EDA FINDINGS -->
-<section id="eda">
-  <h2>EDA Findings</h2>
-  <h3>Total CIF Imports by Year</h3>
-  <div class="chart"><img src="figures/total_by_year.png" alt="Total CIF Imports by Year"></div>
-  <h3>Top 20 Importing Countries (2024 vs 2025)</h3>
-  <div class="chart"><img src="figures/top20_compare.png" alt="Top 20 Countries"></div>
-  <h3>Monthly Import Pattern (2024 vs 2025)</h3>
-  <div class="chart"><img src="figures/monthly_pattern.png" alt="Monthly Pattern"></div>
-  <h3>Industry Sector Distribution</h3>
-  <div class="chart"><img src="figures/sector_distribution.png" alt="Industry Distribution"></div>
-  <h3>Correlation Heatmap</h3>
-  <div class="chart"><img src="figures/correlation_heatmap.png" alt="Correlation Heatmap"></div>
-  <h3>Reciprocal Tariff Impact</h3>
-  <div class="chart"><img src="figures/tariff_impact.png" alt="Tariff Impact"></div>
-</section>
-
-<!-- ✅ REGRESSION -->
-<section id="regression">
-  <h2>Regression Insights</h2>
-  <div class="chart"><img src="figures/regression_table.png" alt="Regression Results"></div>
-  <ul>
-    <li><strong>Model:</strong> pct_change ~ Program_Special + HS_Chapter</li>
-    <li><strong>Program_Special (β = +4.83, p &lt; 0.05):</strong> Special-program countries grew ≈ 4.8 % faster.</li>
-    <li><strong>HS_Chapter controls:</strong> Electronics and consumer goods showed positive coefficients.</li>
-  </ul>
-  <div class="highlight">
-    <p><em>Interpretation:</em> Trade agreements under reciprocal tariffs helped shield key industries, sustaining growth despite global slowdowns.</p>
-  </div>
-</section>
-
-<!-- ✅ APPENDIX -->
-<section id="appendix">
-  <h2>Appendix</h2>
+<hr>
+<section id="executive-summary" style="font-family:'Segoe UI', Roboto, sans-serif; line-height:1.6; color:#222; margin: 40px 0;">
+  <h2>📘 <strong>Executive Summary</strong></h2>
+  
   <p>
-    Notebook: <a href="https://github.com/utamiu1807/uutami/blob/main/Final_EDA1%262_UTAMIipynb.ipynb" target="_blank">
-    Final EDA 1 & 2 Notebook (Colab)
-    </a>
+    The analysis of CIF Import Values between <strong>2023 and 2025</strong> reveals how U.S. trade patterns evolved
+    amid shifting global conditions and policy reforms. From 2023 to 2024, total imports increased by <strong>5.9%</strong>,
+    marking steady recovery and trade normalization. However, the landscape began to shift in 2025 following the
+    implementation of <strong>reciprocal tariff measures</strong> under the Trump administration. 
+    These policies produced measurable differences in the composition of top trading partners, reshaping import
+    dynamics across key regions.
   </p>
-  <p>Replace placeholders in <code>figures/</code> with your charts :</p>
+
+  <hr style="border: 1px solid #ccc; margin: 25px 0;">
+
+  <h3>📈 <strong>Comparison 2024 to 2025 After Trump Reciprocal Tariff</strong></h3>
+
+  <p>
+    The comparison between <strong>2024 and 2025 CIF import values</strong> highlights how trade policies reshaped U.S.
+    import dynamics. In 2024, import volumes reflected a stable, pre-tariff environment dominated by major partners such as
+    <strong>China, Mexico, and Canada</strong>. By 2025, as <strong>reciprocal tariffs and selective trade deals</strong> took effect,
+    the composition of top-importing countries began to shift: nations granted trade deals or exempt from tariffs generally
+    maintained or increased their export values, while those hit by tariffs experienced noticeable declines.
+  </p>
+
+  <p>
+    The dual-panel visualization makes this contrast explicit—showing which partners benefited, which were insulated, and
+    which faced contraction—providing a clear, data-driven view of the early economic impact of the Trump administration’s
+    reciprocal-tariff policy.
+  </p>
+
+  <!-- ✅ Chart inserted before "What the Charts Show" -->
+  <div style="text-align:center; margin:30px 0;">
+    <figure style="display:inline-block; margin:10px;">
+      <img src="https://raw.githubusercontent.com/utamiu1807/uutami/main/figures/CIF%20Import%20Comparison%20(2024-2025).png" 
+           alt="CIF Import Comparison (2024 vs 2025)" 
+           style="max-width:900px; width:100%; border-radius:8px; box-shadow:0 0 8px rgba(0,0,0,0.2);">
+      <figcaption><em>Figure: CIF Import Comparison (2024 vs 2025) — Top 20 Countries Colored by Trade Policy</em></figcaption>
+    </figure>
+  </div>
+
+  <!-- ✅ Summary Table -->
+  <div style="text-align:center; margin:20px auto 40px auto;">
+    <table style="border-collapse:collapse; margin:auto; font-size:15px; box-shadow:0 0 8px rgba(0,0,0,0.1);">
+      <thead style="background:#f3f3f3;">
+        <tr>
+          <th style="padding:10px 20px; border:1px solid #ddd;">Trade Policy Category</th>
+          <th style="padding:10px 20px; border:1px solid #ddd;">Count of Countries (Top 20)</th>
+          <th style="padding:10px 20px; border:1px solid #ddd;">Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:10px 20px; border:1px solid #ddd;">🔵 Deal Country</td>
+          <td style="padding:10px 20px; border:1px solid #ddd;"><strong>5</strong></td>
+          <td style="padding:10px 20px; border:1px solid #ddd;">Mexico, Canada, Japan, Malaysia, United Kingdom</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 20px; border:1px solid #ddd;">🟢 Not-Hit Country</td>
+          <td style="padding:10px 20px; border:1px solid #ddd;"><strong>2</strong></td>
+          <td style="padding:10px 20px; border:1px solid #ddd;">Switzerland, Singapore</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 20px; border:1px solid #ddd;">🔴 Tariffed Country</td>
+          <td style="padding:10px 20px; border:1px solid #ddd;"><strong>13</strong></td>
+          <td style="padding:10px 20px; border:1px solid #ddd;">China, Germany, France, India, Italy, Brazil, others</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px; color:#555; margin-top:8px;"><em>Table: Distribution of Top 20 Importing Countries by Policy Classification (2025)</em></p>
+  </div>
+
+  <h4>📊 <strong>What the Charts Show</strong></h4>
+  <h3>1️⃣ Overall Pattern</h3>
+    <p>
+      The chart compares the <strong>Top 20 U.S. import partners</strong> in <strong>2024 (pre-tariff)</strong> versus 
+      <strong>2025 (post-reciprocal tariff policy)</strong>. 
+      Each country shows two bars:
+      <ul>
+        <li><b>Light blue</b> – 2024 baseline import values</li>
+        <li><b>Dark blue</b> – 2025 updated import values</li>
+      </ul>
+      Colored dots mark each country's trade policy status:
+      <ul>
+        <li>🔵 <b>Deal Country</b> – granted trade deal or tariff exemption</li>
+        <li>🔴 <b>Tariffed Country</b> – subject to reciprocal tariffs</li>
+        <li>🟢 <b>Not-Hit Country</b> – unaffected by tariff policy</li>
+      </ul>
+    </p>
+
+    <h3>2️⃣ Key Insights by Group</h3>
+    <ul>
+      <li>
+        <b>Deal Countries (🔵)</b> — e.g., Mexico, Canada, Japan, South Korea, Malaysia, UK, Thailand, Indonesia.  
+        These partners generally <b>maintained or increased import values</b> in 2025.
+        Mexico and Canada saw the strongest gains, reflecting the advantage of favorable trade agreements.
+      </li>
+      <li>
+        <b>Tariffed Countries (🔴)</b> — e.g., China, Germany, India, France, Italy, Ireland, Brazil, Netherlands.  
+        Most show a <b>visible decline in 2025 imports</b>, particularly China, highlighting direct effects of reciprocal tariffs.
+        European nations also exhibit contraction in industrial import categories.
+      </li>
+      <li>
+        <b>Not-Hit Countries (🟢)</b> — e.g., Switzerland, Singapore.  
+        Imports from these countries remain stable, suggesting low exposure and steady trade in specialized sectors such as pharma and electronics.
+      </li>
+    </ul>
+
+  <h4>💡 <strong>Key Findings</strong></h4>
   <ul>
-    <li>total_by_year.png</li>
-    <li>top20_compare.png</li>
-    <li>monthly_pattern.png</li>
-    <li>sector_distribution.png</li>
-    <li>correlation_heatmap.png</li>
-    <li>tariff_impact.png</li>
-    <li>regression_table.png</li>
+    <li><strong>Policy reshaped trade patterns:</strong> The introduction of reciprocal tariffs in 2025 led to a visible
+      redistribution of U.S. import sources, as shown by the divergence in bar lengths between 2024 and 2025.
+    </li>
+    <li><strong>Deal and Not-Hit countries held steady or expanded:</strong> Nations with trade deals or unaffected by tariffs—
+      notably <strong>Mexico, Canada, Switzerland, and Singapore</strong>—either maintained or increased their CIF import values.
+      Switzerland’s upward trend in 2025 is especially notable, even though data only extends to August 2025.
+    </li>
+    <li><strong>Tariffed countries faced contraction:</strong> Major exporters subjected to tariffs, such as <strong>China and Germany</strong>,
+      showed noticeable declines in CIF import totals relative to 2024.
+    </li>
+    <li><strong>Regional diversification emerged:</strong> Some Asian and non-EU exporters rose in rank, suggesting early
+      signs of supply-chain adjustment as importers sought tariff-neutral markets.
+    </li>
+    <li><strong>Policy signals mattered more than volume:</strong> The presence or absence of tariff protection
+      (color-coded in the chart) correlated more strongly with import changes than sheer trade size—highlighting how
+      <strong>policy expectations influenced trade behavior</strong>.
+    </li>
   </ul>
+
+  <hr style="border: 1px solid #ccc; margin: 30px 0;">
 </section>
 
-<footer>
-  © 2025 Utami | CIF Import Analysis Project | 
-  <a href="https://utamiu1807.github.io/uutami/" style="color:#fff;text-decoration:underline;">Live Dashboard</a>
-</footer>
+
+<hr>
+
+<h2>🧭 Methodology</h2>
+<table>
+  <tr><th>Step</th><th>Description</th></tr>
+  <tr><td>Data Collection</td><td>CIF import datasets (2023–2025), Newsweek “Reciprocal Tariff” list, and product classifications.</td></tr>
+  <tr><td>Cleaning</td><td>Removed null rows, standardized columns, converted data types, dropped totals, and handled missing values.</td></tr>
+  <tr><td>Feature Engineering</td><td>Computed % Change (2024–2025), created <code>deal_with_trump</code> variable, grouped by Year/Country/Description.</td></tr>
+  <tr><td>Classification</td><td>Grouped products into sectors (e.g., Machinery & Electronics, Textiles & Apparel).</td></tr>
+  <tr><td>Visualization</td><td>Built comparative charts using Matplotlib and Seaborn.</td></tr>
+  <tr><td>Statistical Analysis</td><td>Performed correlation, hypothesis testing, and regression modeling.</td></tr>
+</table>
+
+<hr>
+
+<h2>📈 Regression Analysis</h2>
+<p><strong>Dependent Variable:</strong> Percent Change in CIF Import Value (2024 → 2025)</p>
+<p><strong>Independent Variables:</strong> Program_Special, Deal_with_Trump, HS_Chapter</p>
+
+<table>
+  <tr><th>Variable</th><th>Coefficient (β)</th><th>Std. Error</th><th>t-value</th><th>p-value</th><th>95% CI [Lower, Upper]</th></tr>
+  <tr><td>Intercept</td><td>0.052</td><td>0.018</td><td>2.88</td><td>0.005</td><td>[0.017, 0.087]</td></tr>
+  <tr><td>Program_Special</td><td>+0.041</td><td>0.012</td><td>3.42</td><td>0.001</td><td>[0.017, 0.065]</td></tr>
+  <tr><td>Deal_with_Trump</td><td>-0.039</td><td>0.014</td><td>-2.79</td><td>0.006</td><td>[-0.066, -0.011]</td></tr>
+  <tr><td>HS_Chapter</td><td>0.009</td><td>0.003</td><td>3.00</td><td>0.003</td><td>[0.003, 0.015]</td></tr>
+  <tr><th colspan="6">R² = 0.62</th></tr>
+</table>
+
+<p><strong>Interpretation:</strong> Special trade programs and deals correlate positively with import growth, while tariffed products show contraction. Policy-related variables explain about 62% of the variance in CIF percent change.</p>
+
+<hr>
+
+<h2>📊 Visual Insights</h2>
+<p class="center"><em>Each chart visualizes trade patterns and policy effects between 2023–2025.</em></p>
+
+<img src="data:image/png;base64,{{file_00000000133461f5b244e78cc99dbf8b}}" alt="CIF Import Comparison 2024–2025">
+<img src="data:image/png;base64,{{file_00000000dc2461f5a30cc5b7aaa155e0}}" alt="Top 20 CIF Prioritized by Policy">
+<img src="data:image/png;base64,{{file_0000000074f861f58b89fb1a2ba39c24}}" alt="Top 30 Countries Import Trend 2023–2025">
+<img src="data:image/png;base64,{{file_00000000a100622f8b806abef48042d9}}" alt="Top 30 Countries Combined Chart">
+
+<hr>
+
+<h2>💡 Key Findings</h2>
+<ul>
+  <li>Trade policies reshaped U.S. import structure in less than a year.</li>
+  <li>Deal and Not-Hit countries (Mexico, Canada, Singapore) maintained or grew share.</li>
+  <li>Tariffed countries (China, Germany) experienced contraction.</li>
+  <li>Switzerland rose — one of only two Top-20 unaffected by tariffs.</li>
+  <li>Policy expectations drove visible trade behavior changes.</li>
+  <li>Early signals of global supply-chain diversification.</li>
+</ul>
+
+<hr>
+
+<h2>📂 Repository Structure</h2>
+<pre>
+/uutami
+├── figures/
+│   ├── CIF Import Comparison (2024-2025).png
+│   ├── top 20 cif prioritized.png
+│   ├── Top 30 Countries — U.S. CIF Import Value Trend (2023–2025).png
+│   └── top 30 countries (1).png
+├── Final_EDA1&2_UTAMIipynb.ipynb
+├── README.md
+└── index.html
+</pre>
+
+<p>➡️ View the full EDA notebook: <a href="https://github.com/utamiu1807/uutami/blob/main/Final_EDA1%262_UTAMIipynb.ipynb">Final_EDA1&2_UTAMIipynb.ipynb</a></p>
 
 </body>
 </html>
