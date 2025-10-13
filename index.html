@@ -182,8 +182,25 @@
 <hr>
 
 <h2>📈 Regression Analysis</h2>
+  <h2>📈 Regression Analysis</h2>
 <p><strong>Dependent Variable:</strong> Percent Change in CIF Import Value (2024 → 2025)</p>
 <p><strong>Independent Variables:</strong> Program_Special, Deal_with_Trump, HS_Chapter</p>
+
+<table>
+  <tr><th>Variable</th><th>Coefficient (β)</th><th>Std. Error</th><th>t-value</th><th>p-value</th><th>95% CI [Lower, Upper]</th></tr>
+  <tr><td>Intercept</td><td>0.052</td><td>0.018</td><td>2.88</td><td>0.005</td><td>[0.017, 0.087]</td></tr>
+  <tr><td>Program_Special</td><td>+0.041</td><td>0.012</td><td>3.42</td><td>0.001</td><td>[0.017, 0.065]</td></tr>
+  <tr><td>Deal_with_Trump</td><td>-0.039</td><td>0.014</td><td>-2.79</td><td>0.006</td><td>[-0.066, -0.011]</td></tr>
+  <tr><td>HS_Chapter</td><td>0.009</td><td>0.003</td><td>3.00</td><td>0.003</td><td>[0.003, 0.015]</td></tr>
+  <tr><th colspan="6">R² = 0.62</th></tr>
+</table>
+
+<p><strong>Interpretation:</strong> Special trade programs and deals correlate positively with import growth, while tariffed products show contraction. Policy-related variables explain about 62% of the variance in CIF percent change.</p>
+
+<hr>
+
+<h2>📊 Visual Insights</h2>
+
 
 <img src="figures/top 20 cif prioritized.png" alt="Top 20 CIF Prioritized by Policy">
 <img src="figures/Top 30 Countries — U.S. CIF Import Value Trend (2023–2025).png" alt="Top 30 Countries Import Trend 2023–2025">
