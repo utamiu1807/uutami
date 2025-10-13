@@ -12,38 +12,32 @@
     margin: 0;
     line-height: 1.6;
   }
-
   header {
     background: linear-gradient(90deg, #003366, #0073aa);
     color: #fff;
     padding: 2rem;
     text-align: center;
   }
-
   header h1 {
     margin: 0;
     font-size: 2rem;
     letter-spacing: 0.5px;
   }
-
   header p {
     margin-top: 0.5rem;
     font-size: 1.1rem;
   }
-
   nav {
     background-color: #e8f1f7;
     padding: 1rem 2rem;
     border-bottom: 2px solid #c7dce9;
   }
-
   nav a {
     color: #003366;
     text-decoration: none;
     margin-right: 1.5rem;
     font-weight: 600;
   }
-
   section {
     margin: 2rem auto;
     max-width: 1000px;
@@ -52,33 +46,27 @@
     border-radius: 12px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.07);
   }
-
   h2 {
     color: #003366;
     border-left: 6px solid #0073aa;
     padding-left: 0.5rem;
   }
-
   h3 {
     color: #0073aa;
     margin-top: 1rem;
   }
-
   ul, p {
     font-size: 1rem;
   }
-
   .chart {
     text-align: center;
     margin: 1rem 0;
   }
-
   img {
     max-width: 100%;
     border-radius: 8px;
     border: 1px solid #ccc;
   }
-
   footer {
     text-align: center;
     background: #003366;
@@ -86,7 +74,6 @@
     padding: 1rem;
     margin-top: 3rem;
   }
-
   .highlight {
     background-color: #e6f4ff;
     border-left: 4px solid #0073aa;
@@ -120,6 +107,24 @@
     the analysis reveals how key trading partners responded to tariff changes and which industries 
     demonstrated resilience or vulnerability.
   </p>
+
+  <div style="background-color:#e8f3ff; border-left:6px solid #0066cc; border-radius:8px; padding:1rem 1.2rem; margin:1rem 0;">
+    <h3 style="color:#004c99; margin-top:0;">Executive Summary 1 — Yearly Import Overview</h3>
+    <p>
+      From <strong>2023 to 2024</strong>, total U.S. CIF import value increased by approximately 
+      <strong>5.9%</strong>, reflecting a period of moderate growth and stable trade activity. 
+      For <strong>2025</strong>, the trend remains inconclusive since data is currently available 
+      only up to <strong>August 2025</strong>.
+    </p>
+    <p>
+      Across all <strong>232 reporting countries</strong>, the <strong>top 25 importers</strong> 
+      demonstrated a remarkably steady performance, suggesting that the concentration of trade 
+      among leading partners remained consistent year-over-year. However, a substantial gap 
+      persists between the <strong>top three countries</strong> and the rest of the group, 
+      indicating continued dominance by major trading partners.
+    </p>
+  </div>
+
   <div class="highlight">
     <p><strong>Key Takeaway:</strong> By 2025, trade patterns shifted from traditional partners like China toward
     Southeast Asian economies — especially Indonesia and Vietnam — following new tariff exemptions and deals.</p>
@@ -135,8 +140,61 @@
     <li>Analysis performed in Google Colab using pandas, seaborn, matplotlib, statsmodels</li>
   </ul>
   <p>Two EDA phases were conducted to reveal year-to-year, sectoral, and country-level insights.</p>
-</section>
+<div style="background-color:#e8f3ff; border-left:6px solid #0066cc; border-radius:8px; padding:1rem 1.2rem; margin:1rem 0;">
+  <h3 style="color:#004c99; margin-top:0;">Methodology of the Exploratory Data Analysis (EDA)</h3>
+  <p>
+    The EDA process combined <strong>quantitative data analysis</strong> and <strong>visual storytelling</strong> to examine CIF import trends 
+    and assess the effects of trade policy shifts between 2023 and 2025. 
+    All computations and visualizations were performed in <strong>Google Colab</strong> using Python libraries including 
+    <code>pandas</code>, <code>matplotlib</code>, <code>seaborn</code>, and <code>statsmodels</code>.
+  </p>
+  <ul>
+    <li><strong>Data Integration:</strong> Merged multi-year datasets (HTS-2 & HTS-4 levels) from 2023 to 2025, standardizing column formats and currency units.</li>
+    <li><strong>Cleaning & Validation:</strong> Removed duplicates, corrected country codes, and handled missing CIF values using interpolation where applicable.</li>
+    <li><strong>Feature Engineering:</strong> Computed year-over-year percentage change and labeled countries by <em>Policy Category</em> (Deal, Not-Hit, Tariffed).</li>
+    <li><strong>Visualization:</strong> Generated bar charts, trend lines, and comparative plots for top importers and policy categories.</li>
+    <li><strong>Statistical Testing:</strong> Conducted regression analysis to evaluate how trade programs and HS sectors affected CIF import growth.</li>
+  </ul>
+  <p>
+    This systematic approach ensured that insights were both <strong>data-driven</strong> and <strong>policy-relevant</strong>, 
+    linking quantitative outcomes directly to U.S. trade policy dynamics.
+  </p>
+</div>
+  <div style="background-color:#e8f3ff; border-left:6px solid #0066cc; border-radius:8px; padding:1rem 1.2rem; margin:1.5rem 0;">
+    <h3 style="color:#004c99; margin-top:0;">Data Collection and Sources</h3>
+    <p>
+      The import data used in this analysis was primarily obtained from the 
+      <a href="https://dataweb.usitc.gov/trade/search/Import/HTS" target="_blank">U.S. International Trade Commission (USITC) DataWeb</a> 
+      and supplemented with additional country-level and product-specific datasets through targeted web scraping. 
+      The scraping code and extraction links are fully documented in the 
+      <a href="https://github.com/utamiu1807/uutami/blob/main/Final_EDA1%262_UTAMIipynb.ipynb" target="_blank">Final EDA Notebook</a> 
+      hosted in the project repository.
+    </p>
 
+    <h4 style="color:#004c99;">Primary Data Sources:</h4>
+    <ul>
+      <li>U.S. International Trade Commission (USITC) — official CIF import data by HTS code (2-digit and 4-digit level).</li>
+      <li>Custom datasets extracted via web scraping from reputable economic and trade data portals.</li>
+      <li>Supplementary reference tables for country codes, industry classification, and tariff policy mapping.</li>
+    </ul>
+
+    <h4 style="color:#004c99;">Data Acquisition Methodology:</h4>
+    <p>
+      Data from the USITC platform was collected through its official export interface using structured search queries 
+      by year and HTS code. Web scraping routines (developed in Python) were used to retrieve complementary information 
+      on tariff categories and reciprocal trade deal status. Each source was verified for data consistency and completeness 
+      prior to integration.
+    </p>
+
+    <h4 style="color:#004c99;">Data Processing Procedures:</h4>
+    <ul>
+      <li>Standardized country and HS code formats across all imported datasets.</li>
+      <li>Converted CIF import values into consistent USD units for comparability.</li>
+      <li>Applied cleaning, deduplication, and outlier detection routines to ensure data integrity.</li>
+      <li>Consolidated all files into a unified analytical DataFrame for subsequent EDA and regression analysis.</li>
+    </ul>
+  </div>
+</section>
 <section id="eda">
   <h2>Exploratory Data Findings</h2>
 
@@ -146,36 +204,43 @@
 
   <h3>Top 20 Importing Countries (2024 vs 2025)</h3>
   <div class="chart"><img src="figures/top20_compare.png" alt="Top 20 Countries"></div>
-  <p>
-    2024 saw dominance by China, Mexico, and Canada. In 2025, Indonesia and Vietnam climbed into the top 10, 
-    showing benefits from trade deal adjustments.
-  </p>
 
-  <h3>Monthly Import Pattern (2024 vs 2025)</h3>
-  <div class="chart"><img src="figures/monthly_pattern.png" alt="Monthly Pattern"></div>
-  <p>
-    Imports dipped early 2025 then rebounded mid-year, aligning with relaxed tariff policies and improved global logistics.
-  </p>
+  <h3>CIF Import Comparison (2024 vs 2025)</h3>
+  <div class="chart"><img src="figures/CIF_Import_Comparison_2024_2025.png" alt="CIF Import Comparison (2024 vs 2025)"></div>
+  <div style="background-color:#e8f3ff; border-left:6px solid #0066cc; border-radius:8px; padding:1rem 1.2rem; margin:1rem 0;">
+    <h3 style="color:#004c99; margin-top:0;">Executive Summary 2 — CIF Import Comparison (2024 vs 2025)</h3>
+    <p>
+      The comparison between <strong>2024 and 2025</strong> CIF import values highlights how the implementation of
+      <strong>reciprocal tariffs</strong> and selective trade deals reshaped the U.S. import landscape.
+      While 2024 represented a relatively neutral pre-policy period, 2025 shows clear divergence driven by
+      each country’s <strong>policy classification</strong> — either as a Deal, Not-Hit, or Tariffed nation.
+    </p>
+    <p>
+      Imports from <strong>Deal Countries</strong> such as Mexico and Canada rose significantly due to trade
+      advantages, while <strong>Tariffed Countries</strong> — including China, Germany, and India — saw notable
+      declines in import volume. <strong>Not-Hit Countries</strong> like Japan and Vietnam remained stable,
+      indicating neutral exposure to policy change.
+    </p>
+    <p>
+      Overall, the 2025 data confirms a <strong>policy-driven realignment of global trade flows</strong>:
+      the U.S. shifted import concentration toward strategic allies while reducing dependence on
+      tariff-affected economies.
+    </p>
+  </div>
+  <div class="highlight">
+    <p><strong>Executive Summary:</strong> The 2025 trade environment rewarded alignment and penalized conflict. 
+    U.S. import growth favored allies with negotiated trade deals, while tariffed countries experienced measurable declines. 
+    This demonstrates a pivot toward strategic partners and reduced reliance on tariff-affected economies.</p>
+  </div>
 
-  <h3>Industry Sector Distribution</h3>
-  <div class="chart"><img src="figures/sector_distribution.png" alt="Industry Distribution"></div>
-  <p>
-    Leading sectors by CIF value: <strong>Machinery & Electronics (29%)</strong>,
-    <strong>Chemicals & Plastics (18%)</strong>, and <strong>Consumer Goods (15%)</strong>.
-  </p>
-
-  <h3>Correlation Heatmap</h3>
-  <div class="chart"><img src="figures/correlation_heatmap.png" alt="Correlation Heatmap"></div>
-  <p>
-    A positive correlation (r ≈ 0.61) between <code>Program_Special</code> and <code>pct_change</code> 
-    indicates that special trade programs buffered negative tariff impacts.
-  </p>
-
-  <h3>Reciprocal Tariff Impact</h3>
-  <div class="chart"><img src="figures/tariff_impact.png" alt="Tariff Impact"></div>
-  <p>
-    About 40 % of the top 20 countries faced reciprocal tariffs, accounting for ≈ 35 % of total CIF value decline.
-  </p>
+  <h3>Key Findings — CIF Import Structure (2025)</h3>
+  <ul>
+    <li><strong>Deal Countries Expanded:</strong> Mexico and Canada show visible import growth in 2025, reflecting benefits from preferential access.</li>
+    <li><strong>Tariffed Countries Declined:</strong> China, Germany, and India saw notable reductions, confirming the impact of reciprocal tariffs.</li>
+    <li><strong>Not-Hit Countries Stayed Steady:</strong> Japan and Vietnam show consistent trade volumes, indicating limited exposure to tariff changes.</li>
+    <li><strong>Policy Realignment:</strong> The mix of colors (blue = Deal, green = Not-Hit, red = Tariffed) reveals that trade performance now aligns with policy categories rather than geography.</li>
+    <li><strong>Trade Concentration:</strong> Most imports now come from deal and not-hit countries, confirming a deliberate policy-driven reorientation of trade flows.</li>
+  </ul>
 </section>
 
 <section id="regression">
@@ -186,9 +251,22 @@
     <li><strong>Program_Special (β = +4.83, p &lt; 0.05):</strong> special-program countries grew ≈ 4.8 % faster</li>
     <li><strong>HS_Chapter Controls:</strong> electronics and consumer goods positive coefficients</li>
   </ul>
-  <div class="highlight">
-    <p><em>Interpretation:</em> Trade agreements under the reciprocal tariff framework effectively shielded
-    certain sectors, sustaining import growth despite broader contraction.</p>
+  <div style="background-color:#e8f3ff; border-left:6px solid #0066cc; border-radius:8px; padding:1rem 1.2rem; margin:1rem 0;">
+  <h3 style="color:#004c99; margin-top:0;">Executive Summary 3 — Regression & Statistical Insights</h3>
+  <p>
+    Regression analysis confirms that <strong>special trade programs</strong> and <strong>industry classification</strong> 
+    significantly influenced the rate of import growth between 2023 and 2025. 
+    Countries participating in special programs experienced approximately <strong>4.8% higher growth</strong> in CIF import value, 
+    suggesting that policy incentives effectively sustained trade momentum despite tariff challenges.
+  </p>
+  <p>
+    The <strong>HS Chapter controls</strong> indicate that sectors such as <strong>Machinery, Electronics, and Consumer Goods</strong> 
+    demonstrated stronger resilience, while other categories were more sensitive to tariff exposure. 
+    These findings highlight that the tariff framework’s impact was <strong>not uniform</strong>, but varied significantly across industries.
+  </p>
+</div>
+<div class="highlight">
+    <p><em>Interpretation:</em> Trade agreements under the reciprocal tariff framework effectively shielded certain sectors, sustaining import growth despite broader contraction.</p>
   </div>
 </section>
 
@@ -214,6 +292,7 @@
   <ul>
     <li>total_by_year.png</li>
     <li>top20_compare.png</li>
+    <li>CIF_Import_Comparison_2024_2025.png</li>
     <li>monthly_pattern.png</li>
     <li>sector_distribution.png</li>
     <li>correlation_heatmap.png</li>
