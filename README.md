@@ -48,20 +48,6 @@ All figures are stored in the `figures/` folder and referenced directly in `inde
 
 ---
 
-## 📈 Regression Highlights
-
-**Dependent Variable:**  
-Percent Change in CIF Import Value (2024 → 2025)
-
-| Variable | Coefficient (β) | t-Value | p-Value | Interpretation |
-|-----------|----------------|---------|---------|----------------|
-| `Program_Special` | +0.041 | 3.42 | 0.001 | Special programs correlated with import growth |
-| `Deal_with_Trump` | −0.039 | −2.79 | 0.006 | Tariffed partners showed contraction |
-| `HS_Chapter` | +0.009 | 3.00 | 0.003 | Product classification explained minor variation |
-| **R² = 0.62** |  |  |  | 62% of variance explained by policy and product features |
-
----
-
 ## 📂 Repository Structure
 uutami/
 ├── figures/
