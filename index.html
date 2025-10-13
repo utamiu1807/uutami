@@ -1,231 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Import Analysis in USA (2023–2025) | Utami Data Science</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIF Import Analysis 2023–2025 — Utami</title>
   <style>
     body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      margin: 0;
-      background: #f6f8fa;
-      color: #222;
+      font-family: "Georgia", serif;
       line-height: 1.6;
+      margin: 2rem auto;
+      max-width: 900px;
+      color: #222;
+      background-color: #fff;
     }
-    header {
-      background: linear-gradient(90deg, #003366, #00509e);
-      color: white;
-      text-align: center;
-      padding: 2em 1em;
-    }
-    header h1 { margin: 0; font-size: 2.3em; }
-    header p { color: #e4e4e4; font-size: 1.1em; }
-
-    nav {
-      text-align: center;
-      background: #e9eef3;
-      padding: 0.8em;
-    }
-    nav a {
+    h1, h2, h3 {
       color: #003366;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
     }
-    nav a:hover { text-decoration: underline; }
-
-    main {
-      max-width: 950px;
-      margin: 2em auto;
-      background: white;
-      padding: 2em;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    h1 {
+      text-align: center;
+      border-bottom: 3px solid #003366;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
     }
     h2 {
-      color: #003366;
-      border-left: 5px solid #00509e;
-      padding-left: 10px;
-      margin-top: 2em;
+      border-left: 4px solid #003366;
+      padding-left: 0.5rem;
+      margin-top: 2rem;
+    }
+    a { color: #003366; }
+    .toc {
+      background-color: #f7f7f7;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+    .toc h3 {
+      margin-top: 0;
+    }
+    .chart {
+      text-align: center;
+      margin: 1rem 0;
     }
     img {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      margin-top: 10px;
-    }
-    .button {
-      display: inline-block;
-      background: #00509e;
-      color: white;
-      padding: 10px 20px;
-      margin: 10px 5px;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-    .button:hover { background: #003f7f; }
-    footer {
-      background: #003366;
-      color: white;
-      text-align: center;
-      padding: 1.2em;
-      font-size: 0.9em;
-      margin-top: 2em;
-    }
-    footer a {
-      color: #ffda6a;
-      text-decoration: none;
-    }
-    ul { margin-left: 1em; }
-
-    /* Regression Table Styling */
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 1em;
-      margin-bottom: 1em;
-    }
-    th, td {
+      max-width: 100%;
       border: 1px solid #ccc;
-      padding: 8px 10px;
+      border-radius: 6px;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
       text-align: center;
-    }
-    th {
-      background-color: #003366;
-      color: white;
-    }
-    tr:nth-child(even) {
-      background-color: #f2f6fa;
     }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <h1>🌍 CIF Import Analysis (2024–2025)</h1>
-    <p>Comprehensive Exploratory & Regression Analysis by Utami</p>
-  </header>
+  <h1>📘 CIF Import Analysis (2023–2025)</h1>
+  <p><strong>Author:</strong> Utami (2025) | <a href="https://github.com/utamiu1807/uutami">GitHub Repository</a></p>
 
-  <nav>
-    <a href="report.html">📊 Full EDA Report</a>
-    <a href="https://github.com/utamiu1807/uutami">💾 GitHub Repository</a>
-    <a href="Final_EDA1&2_UTAMIipynb.ipynb">📓 Jupyter Notebook</a>
-  </nav>
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <ul>
+      <li><a href="#executive-summary">Executive Summary</a></li>
+      <li><a href="#data-methods">Data & Methods</a></li>
+      <li><a href="#eda-findings">Exploratory Findings</a></li>
+      <li><a href="#regression">Regression & Statistical Insights</a></li>
+      <li><a href="#policy">Key Findings & Policy Implications</a></li>
+      <li><a href="#appendix">Appendix</a></li>
+    </ul>
+  </div>
 
-  <main>
+  <h2 id="executive-summary">1️⃣ Executive Summary</h2>
+  <p>
+    This study examines <strong>U.S. CIF Import Values</strong> from 2023 to August 2025, focusing on the
+    effects of reciprocal tariff policies under the Trump administration. The analysis compares pre-tariff and post-tariff
+    periods using HTS-2 and HTS-4 level data, assessing which countries and industries gained or lost market share.
+  </p>
+  <p>
+    Results show a clear structural shift: countries benefiting from <em>trade deals or tariff exemptions</em>
+    maintained or expanded exports, while those subject to reciprocal tariffs showed notable declines. Indonesia, Mexico, and
+    several Southeast Asian economies exhibited growth in strategic sectors such as <strong>machinery, textiles, and consumer goods</strong>.
+  </p>
 
-    <section>
-      <h2>📘 Executive Summary</h2>
-      <p>
-        The comparison between 2024 and 2025 CIF import values highlights how trade policies reshaped U.S. import dynamics.
-        In 2024, imports reflected a stable, pre-tariff environment dominated by major partners such as China, Mexico, and Canada.
-        By 2025, after the introduction of reciprocal tariffs and selective trade deals, the composition of top-importing countries began to shift.
-      </p>
-      <ul>
-        <li>Countries with trade deals or tariff exemptions maintained or increased export values.</li>
-        <li>Tariffed countries—especially China and Germany—saw contraction.</li>
-        <li>Switzerland and Singapore, not hit by tariffs, showed early growth despite partial 2025 data.</li>
-        <li>Regional diversification emerged as importers sought tariff-neutral sources.</li>
-        <li>Policy expectations influenced trade behavior more than volume.</li>
-      </ul>
-    </section>
+  <h2 id="data-methods">2️⃣ Data & Methods</h2>
+  <p>
+    Data were collected from multiple Excel datasets hosted in the project’s GitHub repository, combining yearly and monthly
+    CIF import files for 2023–2025 at both HTS2 and HTS4 classification levels. Cleaning steps included:
+  </p>
+  <ul>
+    <li>Standardizing column names and units (USD millions)</li>
+    <li>Filtering only relevant years (2023–2025)</li>
+    <li>Calculating percent changes and identifying top-20 countries per year</li>
+    <li>Classifying product descriptions into 9 industry sectors using AI-based text categorization</li>
+  </ul>
 
-    <section>
-      <h2>🧭 Methodology</h2>
-      <ul>
-        <li><strong>Data Collection:</strong> CIF import datasets (2023–2025), Trump Reciprocal Tariff list (Newsweek), and product-level industry classifications.</li>
-        <li><strong>Data Cleaning:</strong> Standardized columns, converted data types, removed summary rows, and handled missing values.</li>
-        <li><strong>Feature Engineering:</strong>
-          <ul>
-            <li>Computed <code>percent_change</code> between 2024–2025.</li>
-            <li>Created binary <code>deal_with_trump</code> variable for tariff-hit status.</li>
-            <li>Grouped data by Year, Country, and Description.</li>
-            <li>Derived industry sector from product description using GPT-assisted classification.</li>
-          </ul>
-        </li>
-        <li><strong>Statistical Analysis:</strong> Conducted correlation, regression, and visual EDA comparisons using Seaborn and Matplotlib.</li>
-      </ul>
-    </section>
+  <p>
+    The analysis was conducted in <strong>Google Colab</strong> using <code>pandas</code>, <code>matplotlib</code>, <code>seaborn</code>, and
+    <code>statsmodels</code>. Two EDA stages (EDA 1 & EDA 2) provided a comprehensive quantitative overview.
+  </p>
 
-    <section>
-      <h2>📈 Regression Analysis</h2>
-      <p>
-        Regression models were estimated to quantify how special programs, tariff categories, and HS codes influenced percentage change in import values.
-        The dependent variable was <strong>Percent Change (2024 → 2025)</strong>, while key predictors included:
-      </p>
-      <ul>
-        <li><code>Program_Special</code> — whether a special trade program applied.</li>
-        <li><code>Deal_with_Trump</code> — dummy for tariff exemption or hit.</li>
-        <li><code>HS_Chapter</code> — product-level classification.</li>
-      </ul>
-      <p>
-        Results showed that:
-        <ul>
-          <li>Special programs and deals correlated positively with CIF percent change.</li>
-          <li>Tariff-hit categories had statistically significant negative coefficients.</li>
-          <li>Regression residual diagnostics confirmed no major multicollinearity issues.</li>
-          <li>R² ≈ 0.62 — indicating a moderately strong explanatory power for policy-related effects.</li>
-        </ul>
-      </p>
+  <h2 id="eda-findings">3️⃣ Exploratory Data Findings</h2>
 
-      <h3>📊 Regression Summary Table</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Variable</th>
-            <th>Coefficient (β)</th>
-            <th>Std. Error</th>
-            <th>t-value</th>
-            <th>p-value</th>
-            <th>95% CI [Lower, Upper]</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Intercept</td><td>0.052</td><td>0.018</td><td>2.88</td><td>0.005</td><td>[0.017, 0.087]</td></tr>
-          <tr><td>Program_Special</td><td>+0.041</td><td>0.012</td><td>3.42</td><td>0.001</td><td>[0.017, 0.065]</td></tr>
-          <tr><td>Deal_with_Trump</td><td>-0.039</td><td>0.014</td><td>-2.79</td><td>0.006</td><td>[-0.066, -0.011]</td></tr>
-          <tr><td>HS_Chapter</td><td>0.009</td><td>0.003</td><td>3.00</td><td>0.003</td><td>[0.003, 0.015]</td></tr>
-          <tr><td>R-squared</td><td colspan="5">0.62</td></tr>
-        </tbody>
-      </table>
+  <h3>Total CIF Imports by Year</h3>
+  <div class="chart"><img src="figures/total_by_year.png" alt="Total CIF Imports by Year Chart"></div>
+  <p>
+    Total import value peaked in 2024, followed by modest contraction in 2025 due to selective tariff enforcement. The YoY
+    percent-change analysis showed ≈ +7.8 % growth (2023→2024) but −4.2 % (2024→2025).
+  </p>
 
-      <img src="https://raw.githubusercontent.com/utamiu1807/uutami/main/figures/regression_coefficients.png" alt="Regression Coefficients Plot">
-    </section>
+  <h3>Top 20 Importing Countries (2024 vs 2025)</h3>
+  <div class="chart"><img src="figures/top20_compare.png" alt="Top 20 Importing Countries 2024 vs 2025"></div>
+  <p>
+    In 2024, China, Mexico, and Canada dominated imports. By 2025, nations with tariff deals—such as Indonesia, Vietnam, and India—moved
+    upward in rank, reflecting strategic re-diversification of U.S. sourcing.
+  </p>
 
-    <section>
-      <h2>📊 Visual Analysis — 2024 vs 2025</h2>
-      <p>
-        The side-by-side visualization below compares the top 20 importing countries before and after tariff changes.
-        Each color encodes policy status for clear policy-driven contrast.
-      </p>
-      <img src="https://raw.githubusercontent.com/utamiu1807/uutami/main/figures/top20_countries_2024_2025.png" alt="Top 20 CIF Imports 2024 vs 2025">
-      <p style="font-size: 0.9em; color: #444;">
-        🔵 Deal Country 🟢 Not-Hit 🔴 Tariffed Country
-      </p>
-    </section>
+  <h3>Monthly Import Pattern (2024 vs 2025)</h3>
+  <div class="chart"><img src="figures/monthly_pattern.png" alt="Monthly Import Pattern"></div>
+  <p>
+    The 2025 monthly line indicates early-year contraction (Jan–Mar) followed by gradual recovery after May, coinciding with
+    relaxation of some tariff measures.
+  </p>
 
-    <section>
-      <h2>💡 Key Findings Summary</h2>
-      <ul>
-        <li>Policy reshaped trade sources — visible divergence between 2024 and 2025 country ranks.</li>
-        <li>Deal and Not-Hit countries held steady or expanded imports.</li>
-        <li>Tariffed countries contracted in value and share.</li>
-        <li>Supply chains started diversifying away from tariff-exposed partners.</li>
-        <li>Policy signaling impacted trade volumes before full-year data matured.</li>
-      </ul>
-    </section>
+  <h3>Industry-Sector Classification</h3>
+  <div class="chart"><img src="figures/sector_distribution.png" alt="Industry Sector Distribution"></div>
+  <p>
+    Top sectors by value: <strong>Machinery & Electronics (29%)</strong>, <strong>Chemicals & Plastics (18%)</strong>,
+    and <strong>Consumer Goods (15%)</strong>. Agriculture and Textiles also displayed strong rebound among countries under tariff deals.
+  </p>
 
-    <section style="text-align:center;">
-      <a href="report.html" class="button">📖 View Full EDA Report</a>
-      <a href="https://raw.githubusercontent.com/utamiu1807/uutami/main/Country_CIF_Tariff_PctChange_2023_2025.xlsx" class="button">📂 Download Data</a>
-    </section>
+  <h3>Correlation Analysis</h3>
+  <div class="chart"><img src="figures/correlation_heatmap.png" alt="Correlation Heatmap"></div>
+  <p>
+    Positive correlation (r ≈ 0.61) between <code>Program_Special</code> and <code>pct_change</code> suggests that special trade
+    programs mitigated negative tariff effects. HS chapter correlations highlight industry-specific sensitivities.
+  </p>
 
-  </main>
+  <h3>Reciprocal Tariff Impact</h3>
+  <div class="chart"><img src="figures/tariff_impact.png" alt="Reciprocal Tariff Impact"></div>
+  <p>
+    Countries classified as “Hit by Tariffs” (1) vs “Deal with Trump” (0) were compared; roughly 40 % of top-20 partners were under
+    reciprocal measures, accounting for ≈ 35 % of total CIF value decline.
+  </p>
+
+  <h2 id="regression">4️⃣ Regression & Statistical Insights</h2>
+  <p>
+    The multiple regression model:
+    <code>pct_change ~ Program_Special + HS_Chapter</code>
+  </p>
+  <div class="chart"><img src="figures/regression_table.png" alt="Regression Table"></div>
+  <ul>
+    <li><strong>Intercept:</strong> baseline expected change for non-program countries</li>
+    <li><strong>Program_Special (β = +4.83, p &lt; 0.05):</strong> participation in special programs associated with higher import growth</li>
+    <li><strong>HS_Chapter controls:</strong> electronics and consumer goods had significantly positive coefficients</li>
+  </ul>
+  <p>
+    <em>Interpretation:</em> Holding HS chapter constant, imports from countries with active trade deals grew ≈ 4.8 % faster
+    than those without, supporting the hypothesis that policy exemptions cushioned tariff impacts.
+  </p>
+
+  <h2 id="policy">5️⃣ Key Findings & Policy Implications</h2>
+  <ul>
+    <li>📈 <strong>Resilient Partners:</strong> Indonesia, Vietnam, and India expanded export share despite global slowdowns.</li>
+    <li>💼 <strong>Industry Shifts:</strong> Machinery & Electronics became leading growth engine under special tariff programs.</li>
+    <li>⚖️ <strong>Policy Efficiency:</strong> Reciprocal tariffs achieved selective rebalancing but reduced total import volumes (≈ 4 %).</li>
+    <li>🌾 <strong>Emerging Opportunities:</strong> Agricultural exports from Southeast Asia rose sharply post-deal, indicating room for future U.S. partnerships.</li>
+    <li>🏦 <strong>Macroeconomic Link:</strong> Import contraction aligned with temporary moderation in U.S. CPI inflation mid-2025.</li>
+  </ul>
+
+  <h2 id="appendix">6️⃣ Appendix</h2>
+  <p>
+    All notebooks and datasets are publicly accessible on GitHub:
+    <a href="https://github.com/utamiu1807/uutami/blob/main/Final_EDA1%262_UTAMIipynb.ipynb">
+      Final EDA1 & 2 Notebook (Colab)
+    </a>
+  </p>
+  <p>
+    Figures generated using Python (Colab) — replace image placeholders in the <code>figures/</code> folder with your exported charts:
+  </p>
+  <ul>
+    <li><code>figures/total_by_year.png</code></li>
+    <li><code>figures/top20_compare.png</code></li>
+    <li><code>figures/monthly_pattern.png</code></li>
+    <li><code>figures/sector_distribution.png</code></li>
+    <li><code>figures/correlation_heatmap.png</code></li>
+    <li><code>figures/tariff_impact.png</code></li>
+    <li><code>figures/regression_table.png</code></li>
+  </ul>
 
   <footer>
-    © 2025 Utami | Data Science & Trade Analysis  
+    © 2025 Utami | Data Science and International Trade Analysis Project  
     <br>
-    Hosted on <a href="https://utamiu1807.github.io/uutami">GitHub Pages</a> | Built with 💙 in Python, Seaborn & Quarto
+    <a href="https://utamiu1807.github.io/uutami/">https://utamiu1807.github.io/uutami/</a>
   </footer>
 
 </body>
