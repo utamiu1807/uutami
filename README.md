@@ -1,9 +1,9 @@
 # Trump_Trade_EDA_Template
 Exploratory Data Analysis (EDA) of trade flows before/after the Trump administration  
 
-Limitation:
+Limitations:
 1. There are 10 category for goods imported, which HTS 2, HTS 4, HTS 6, HTS 8, and HTS 10. For this analysis, I only using data for HTS 2 and HTS 4.
-2. For 2025, I only use data until august 2025
+2. For 2025, There is only available data until August 2025.
 
 # 🌍 CIF Import Analysis (2024–2025)
 
@@ -16,12 +16,23 @@ Limitation:
 
 ## 📘 Executive Summary
 
-The comparison between **2024 and 2025 CIF import values** highlights how trade policies reshaped U.S. import dynamics.
-
 - **2024:** Represented a stable, pre-tariff environment dominated by China, Mexico, and Canada.  
 - **2025:** Marked by the introduction of reciprocal tariffs and selective trade deals that shifted import patterns.
 
-**Key Takeaway:**  
+The comparison between 2024 and 2025 CIF import values highlights how trade policies reshaped U.S. import dynamics. In 2024, import volumes reflected a stable, pre-tariff environment dominated by major partners such as China, Mexico, and Canada. By 2025, as reciprocal tariffs and selective trade deals took effect, the composition of top-importing countries began to shift: nations granted trade deals or exempt from tariffs generally maintained or increased their export values, while those hit by tariffs experienced noticeable declines.
+
+The dual-panel visualization makes this contrast explicit — showing which partners benefited, which were insulated, and which faced contraction — providing a clear, data-driven view of the early economic impact of the Trump administration’s reciprocal-tariff policy.
+The comparison between **2024 and 2025 CIF import values** highlights how trade policies reshaped U.S. import dynamics.
+
+
+** Key Findings**
+Policy reshaped trade patterns: Reciprocal tariffs in 2025 redistributed U.S. import sources.
+Deal and Not-Hit countries expanded: Mexico, Canada, and parts of Southeast Asia maintained growth.
+Only two of the Top 20 countries — Switzerland and Singapore — were not hit by tariffs, explaining Switzerland’s rise in 2025 data (through August).
+Tariffed countries contracted: China and Germany declined notably vs 2024.
+Regional diversification: Non-EU Asian exporters gained share as supply chains realigned.
+Policy signals overrode volume: Tariff status correlated more with import change than trade size.
+
 Nations with trade deals or tariff exemptions maintained or increased export values, while countries hit by tariffs (notably China and Germany) experienced visible declines. Regional diversification and policy-driven trade behavior emerged.
 
 ---
