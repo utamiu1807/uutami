@@ -1,210 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>US CIF Import Analysis (2023–2025) | Utami Data Science</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      background-color: #f7f9fc;
-      color: #222;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(90deg, #003366, #00509e);
-      color: white;
-      text-align: center;
-      padding: 2em 1em;
-    }
-    header h1 {
-      font-size: 2.2em;
-      margin-bottom: 0.3em;
-    }
-    header p {
-      font-size: 1.1em;
-      color: #e2e2e2;
-    }
-    nav {
-      background: #e9eef3;
-      text-align: center;
-      padding: 0.8em;
-    }
-    nav a {
-      color: #003366;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover { text-decoration: underline; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🌍 CIF Import Analysis Dashboard (2023–2025) — Utami</title>
+<style>
+  body {
+    font-family: "Inter", sans-serif;
+    background-color: #f9fbfc;
+    color: #222;
+    margin: 0;
+    line-height: 1.6;
+  }
 
-    main {
-      max-width: 950px;
-      margin: 2em auto;
-      background: white;
-      padding: 2em;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+  header {
+    background: linear-gradient(90deg, #003366, #0073aa);
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+  }
 
-    h2 {
-      color: #003366;
-      border-left: 5px solid #00509e;
-      padding-left: 10px;
-      margin-top: 1.8em;
-    }
+  header h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+  }
 
-    img {
-      width: 100%;
-      border-radius: 8px;
-      margin-top: 10px;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.15);
-    }
+  header p {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+  }
 
-    .button {
-      display: inline-block;
-      background: #00509e;
-      color: white;
-      padding: 10px 20px;
-      margin-top: 10px;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-    .button:hover { background: #003f7f; }
+  nav {
+    background-color: #e8f1f7;
+    padding: 1rem 2rem;
+    border-bottom: 2px solid #c7dce9;
+  }
 
-    footer {
-      background: #003366;
-      color: white;
-      text-align: center;
-      padding: 1.2em;
-      font-size: 0.9em;
-    }
-    footer a {
-      color: #ffda6a;
-      text-decoration: none;
-    }
-    footer a:hover { text-decoration: underline; }
+  nav a {
+    color: #003366;
+    text-decoration: none;
+    margin-right: 1.5rem;
+    font-weight: 600;
+  }
 
-    .chart-section {
-      margin-bottom: 3em;
-    }
-    ul {
-      margin-left: 1em;
-    }
-  </style>
+  section {
+    margin: 2rem auto;
+    max-width: 1000px;
+    padding: 1.5rem 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.07);
+  }
+
+  h2 {
+    color: #003366;
+    border-left: 6px solid #0073aa;
+    padding-left: 0.5rem;
+  }
+
+  h3 {
+    color: #0073aa;
+    margin-top: 1rem;
+  }
+
+  ul, p {
+    font-size: 1rem;
+  }
+
+  .chart {
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  footer {
+    text-align: center;
+    background: #003366;
+    color: white;
+    padding: 1rem;
+    margin-top: 3rem;
+  }
+
+  .highlight {
+    background-color: #e6f4ff;
+    border-left: 4px solid #0073aa;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>US CIF Import Analysis (2023–2025)</h1>
-    <p>Exploratory Data Analysis (EDA) and Tariff Impact Assessment by Utami</p>
-  </header>
+<header>
+  <h1>🌍 U.S. CIF Import Analysis Dashboard (2023–2025)</h1>
+  <p>Exploring trade shifts, tariff impacts, and policy outcomes — by Utami (2025)</p>
+</header>
 
-  <nav>
-    <a href="report.html">📊 Full EDA Report</a>
-    <a href="https://github.com/utamiu1807/uutami">💾 GitHub Repository</a>
-    <a href="Final_EDA1&2_UTAMIipynb.ipynb">📓 Jupyter Notebook</a>
-  </nav>
-
-  <main>
-
-    <section>
-      <h2>📘 Project Overview</h2>
-      <p>
-        This project analyzes the <strong>U.S. CIF Import Values</strong> between 2023 and 2025 to uncover
-        how trade patterns evolved under changing tariff policies, particularly during and after the
-        Trump reciprocal tariff announcements. Data was sourced from official trade records and enriched
-        with tariff classifications from Newsweek’s reciprocal tariff list.
-      </p>
-    </section>
-
-    <section>
-      <h2>🧮 Methodology</h2>
-      <p>The workflow combined multiple data sources and preprocessing steps before visualization:</p>
-      <ul>
-        <li>🧾 <strong>Data Sources:</strong> CIF import datasets (2023–2025) and reciprocal tariff list from Newsweek.</li>
-        <li>🧹 <strong>Cleaning:</strong> Removed null rows, standardized column names, converted Year/Month to integers.</li>
-        <li>🔢 <strong>Transformations:</strong>
-          <ul>
-            <li>Grouped data by Year, Country, and Description using <code>groupby()</code>.</li>
-            <li>Calculated <code>percent_change</code> between 2024–2025.</li>
-            <li>Created a <code>deal_with_trump</code> variable (1 = tariff-hit, 0 = not hit).</li>
-            <li>Classified products into industry sectors (e.g., “Machinery & Electronics”).</li>
-          </ul>
-        </li>
-        <li>📊 <strong>Visualization:</strong> Used <code>matplotlib</code> and <code>seaborn</code> for trend lines, stacked bars, and heatmaps.</li>
-      </ul>
-    </section>
-
-    <section class="chart-section">
-      <h2>📈 Total CIF Imports by Year</h2>
-      <p>
-        The chart below shows total import value trends from 2023–2025. Imports grew steadily, reflecting
-        strong recovery momentum in global trade post-pandemic, though some slowdown appeared in tariff-affected categories.
-      </p>
-      <img src="https://raw.githubusercontent.com/utamiu1807/uutami/main/figures/total_imports_by_year.png" alt="Total Imports by Year">
-    </section>
-
-    <section class="chart-section">
-      <h2>🌍 Top 20 Importing Countries</h2>
-      <p>
-        The composition of top trading partners remained stable, led by <strong>China, Mexico, and Canada</strong>.
-        However, countries with reciprocal tariff exposure (red bars) saw a relative decline in import share.
-      </p>
-      <img src="https://raw.githubusercontent.com/utamiu1807/uutami/main/figures/top20_countries_2024_2025.png" alt="Top 20 Importing Countries">
-    </section>
-
-    <section class="chart-section">
-      <h2>📊 Percent Change in Import Value (2024 → 2025)</h2>
-      <p>
-        Year-over-year growth varied across countries, with notable increases from Indonesia and Vietnam,
-        while tariff-affected countries (e.g., China, Germany) faced contraction in import value.
-      </p>
-      <img src="https://raw.githubusercontent.com/utamiu1807/uutami/main/figures/pct_change_2024_2025.png" alt="Percent Change 2024–2025">
-    </section>
-
-    <section class="chart-section">
-      <h2>🏭 Industry Sector Analysis</h2>
-      <p>
-        Sectoral analysis shows dominance in <strong>Machinery & Electronics</strong> and <strong>Metals & Minerals</strong>,
-        while <strong>Textiles & Apparel</strong> experienced sharper fluctuations due to tariff uncertainty.
-      </p>
-      <img src="https://raw.githubusercontent.com/utamiu1807/uutami/main/figures/industry_sector_trends.png" alt="Industry Sector Trends">
-    </section>
-
-    <section class="chart-section">
-      <h2>💼 Tariff Deal Impact</h2>
-      <p>
-        Comparative analysis between <em>Deal with Trump</em> countries and non-hit countries reveals
-        that non-tariff partners generally maintained stronger import growth, indicating resilience
-        under more favorable trade terms.
-      </p>
-      <img src="https://raw.githubusercontent.com/utamiu1807/uutami/main/figures/tariff_impact_chart.png" alt="Tariff Impact Comparison">
-    </section>
-
-    <section>
-      <h2>📋 Executive Summary</h2>
-      <ul>
-        <li>Total imports increased by ~12% overall between 2023–2025.</li>
-        <li>China remains dominant but shows reduced growth due to reciprocal tariff pressure.</li>
-        <li>Indonesia and Mexico emerged as key beneficiaries of policy shifts.</li>
-        <li>Machinery & Electronics lead in absolute import value across all years.</li>
-        <li>Tariff-hit countries show lower percent change compared to unaffected partners.</li>
-      </ul>
-      <div style="text-align:center;">
-        <a href="report.html" class="button">📖 View Full EDA Report</a>
-        <a href="https://raw.githubusercontent.com/utamiu1807/uutami/main/Country_CIF_Tariff_PctChange_2023_2025.xlsx" class="button">📂 Download Data</a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    © 2025 Utami | Data Science Trade Analysis  
-    <br>
-    Hosted on <a href="https://utamiu1807.github.io/uutami">GitHub Pages</a> | Built with 💙 in Python & Quarto
-  </footer>
-
-</body>
-</html>
+<nav>
+  <a href="#summary">Executive Summary</a>
+  <a href="#methods">Data & Met
