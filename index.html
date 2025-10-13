@@ -105,4 +105,126 @@
 
 <nav>
   <a href="#summary">Executive Summary</a>
-  <a href="#methods">Data & Met
+  <a href="#methods">Data & Methods</a>
+  <a href="#eda">EDA Findings</a>
+  <a href="#regression">Regression Insights</a>
+  <a href="#policy">Policy Implications</a>
+  <a href="#appendix">Appendix</a>
+</nav>
+
+<section id="summary">
+  <h2>Executive Summary</h2>
+  <p>
+    This dashboard analyzes <strong>CIF Import Values</strong> for 2023–2025, highlighting the impact of 
+    <strong>reciprocal tariff policies</strong> on U.S. trade. Using detailed HTS-2 and HTS-4 datasets,
+    the analysis reveals how key trading partners responded to tariff changes and which industries 
+    demonstrated resilience or vulnerability.
+  </p>
+  <div class="highlight">
+    <p><strong>Key Takeaway:</strong> By 2025, trade patterns shifted from traditional partners like China toward
+    Southeast Asian economies — especially Indonesia and Vietnam — following new tariff exemptions and deals.</p>
+  </div>
+</section>
+
+<section id="methods">
+  <h2>Data & Methods</h2>
+  <ul>
+    <li>Data from multiple GitHub-hosted Excel sheets (2023–2025, HTS-2 & HTS-4)</li>
+    <li>Pre-processing: standardization, outlier removal, percent-change calculations</li>
+    <li>Classification: AI-assisted industry mapping into 9 sectors</li>
+    <li>Analysis performed in Google Colab using pandas, seaborn, matplotlib, statsmodels</li>
+  </ul>
+  <p>Two EDA phases were conducted to reveal year-to-year, sectoral, and country-level insights.</p>
+</section>
+
+<section id="eda">
+  <h2>Exploratory Data Findings</h2>
+
+  <h3>Total CIF Imports by Year</h3>
+  <div class="chart"><img src="figures/total_by_year.png" alt="Total CIF Imports by Year"></div>
+  <p>Total import value peaked in 2024 before a mild contraction in 2025 due to tariff implementation.</p>
+
+  <h3>Top 20 Importing Countries (2024 vs 2025)</h3>
+  <div class="chart"><img src="figures/top20_compare.png" alt="Top 20 Countries"></div>
+  <p>
+    2024 saw dominance by China, Mexico, and Canada. In 2025, Indonesia and Vietnam climbed into the top 10, 
+    showing benefits from trade deal adjustments.
+  </p>
+
+  <h3>Monthly Import Pattern (2024 vs 2025)</h3>
+  <div class="chart"><img src="figures/monthly_pattern.png" alt="Monthly Pattern"></div>
+  <p>
+    Imports dipped early 2025 then rebounded mid-year, aligning with relaxed tariff policies and improved global logistics.
+  </p>
+
+  <h3>Industry Sector Distribution</h3>
+  <div class="chart"><img src="figures/sector_distribution.png" alt="Industry Distribution"></div>
+  <p>
+    Leading sectors by CIF value: <strong>Machinery & Electronics (29%)</strong>,
+    <strong>Chemicals & Plastics (18%)</strong>, and <strong>Consumer Goods (15%)</strong>.
+  </p>
+
+  <h3>Correlation Heatmap</h3>
+  <div class="chart"><img src="figures/correlation_heatmap.png" alt="Correlation Heatmap"></div>
+  <p>
+    A positive correlation (r ≈ 0.61) between <code>Program_Special</code> and <code>pct_change</code> 
+    indicates that special trade programs buffered negative tariff impacts.
+  </p>
+
+  <h3>Reciprocal Tariff Impact</h3>
+  <div class="chart"><img src="figures/tariff_impact.png" alt="Tariff Impact"></div>
+  <p>
+    About 40 % of the top 20 countries faced reciprocal tariffs, accounting for ≈ 35 % of total CIF value decline.
+  </p>
+</section>
+
+<section id="regression">
+  <h2>Regression & Statistical Insights</h2>
+  <div class="chart"><img src="figures/regression_table.png" alt="Regression Results"></div>
+  <ul>
+    <li><strong>Model:</strong> pct_change ~ Program_Special + HS_Chapter</li>
+    <li><strong>Program_Special (β = +4.83, p &lt; 0.05):</strong> special-program countries grew ≈ 4.8 % faster</li>
+    <li><strong>HS_Chapter Controls:</strong> electronics and consumer goods positive coefficients</li>
+  </ul>
+  <div class="highlight">
+    <p><em>Interpretation:</em> Trade agreements under the reciprocal tariff framework effectively shielded
+    certain sectors, sustaining import growth despite broader contraction.</p>
+  </div>
+</section>
+
+<section id="policy">
+  <h2>Policy Implications</h2>
+  <ul>
+    <li>📈 <strong>Resilient Partners:</strong> Indonesia, Vietnam, and India expanded export share.</li>
+    <li>🏭 <strong>Industry Shifts:</strong> Machinery & Electronics led growth under tariff programs.</li>
+    <li>⚖️ <strong>Selective Effect:</strong> Reciprocal tariffs rebalanced trade but cut total volume ≈ 4 %.</li>
+    <li>🌾 <strong>Emerging Opportunities:</strong> Agricultural exports from Southeast Asia grew rapidly.</li>
+    <li>🏦 <strong>Macro Link:</strong> Import slowdown correlated with U.S. CPI moderation mid-2025.</li>
+  </ul>
+</section>
+
+<section id="appendix">
+  <h2>Appendix</h2>
+  <p>
+    Notebook: <a href="https://github.com/utamiu1807/uutami/blob/main/Final_EDA1%262_UTAMIipynb.ipynb" target="_blank">
+      Final EDA 1 & 2 Notebook (Colab)
+    </a>
+  </p>
+  <p>Replace placeholders in <code>figures/</code> with your actual exported charts:</p>
+  <ul>
+    <li>total_by_year.png</li>
+    <li>top20_compare.png</li>
+    <li>monthly_pattern.png</li>
+    <li>sector_distribution.png</li>
+    <li>correlation_heatmap.png</li>
+    <li>tariff_impact.png</li>
+    <li>regression_table.png</li>
+  </ul>
+</section>
+
+<footer>
+  © 2025 Utami | CIF Import Analysis Project | <a href="https://utamiu1807.github.io/uutami/" style="color:#fff;text-decoration:underline;">Live Dashboard</a>
+</footer>
+
+</body>
+</html>
