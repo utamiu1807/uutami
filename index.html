@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🌍 CIF Import Analysis — 2024 vs 2025</title>
+<title>🌍 CIF Import Analysis — 2023 vs 2025</title>
 <style>
   body {
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -15,6 +15,11 @@
   }
   h1, h2, h3 {
     color: #004d7a;
+    text-align: center;
+  }
+  p {
+    text-align: justify;
+    margin: 12px 0;
   }
   img {
     display: block;
@@ -37,13 +42,20 @@
   th {
     background-color: #f2f2f2;
   }
-  .center {
-    text-align: center;
+  ul {
+    margin-left: 30px;
   }
-  .highlight {
-    background-color: #e9f7fe;
-    padding: 10px;
-    border-left: 4px solid #0077b6;
+  iframe {
+    display: block;
+    margin: 25px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 40px 0;
   }
   a {
     color: #0077b6;
@@ -63,299 +75,161 @@
 <strong>Repository:</strong> <a href="https://github.com/utamiu1807/uutami">utamiu1807/uutami</a></p>
 
 <hr>
-<section id="executive-summary" style="font-family:'Segoe UI', Roboto, sans-serif; line-height:1.6; color:#222; margin: 40px 0;">
-  <h2>📘 <strong>Executive Summary</strong></h2>
-  
+
+<section id="executive-summary">
+  <h2>📘 Executive Summary</h2>
   <p>
-    	The analysis of CIF Import Values between <strong>2023 and 2025</strong> reveals how U.S. trade patterns evolved
-    amid shifting global conditions and policy reforms. From 2023 to 2024, total imports increased by <strong>5.9%</strong>,
-    marking steady recovery after COVID. For 2025, we cannot conclude the trend because we only have data until August 2025. 
-    There are 232 countries were analyzed. When ranked by import value, the top 30 countries display a relatively stable pattern 
-    over time, indicating that the concentration of trade among leading partners has remained consistent year over year. 
-    However, there is a noticeable gap between the three largest importers and the rest of the countries.
-	The comparison between <strong>2024 and 2025 CIF import values</strong> highlights how trade policies reshaped U.S.
-    import dynamics. In 2024, import volumes reflected a stable, pre-tariff environment dominated by major partners such as
-    <strong>China, Mexico, and Canada</strong>. By 2025, as <strong>reciprocal tariffs and selective trade deals</strong> took effect,
-    the composition of top-importing countries began to shift: nations granted trade deals or exempt from tariffs generally
-    maintained or increased their export values, while those hit by tariffs experienced noticeable declines.
-
-	China’s Slower Growth:
-	In 2025, China’s import growth decelerated notably. Among the three leading trading partners, China stands out as the only one without a formal trade deal with the Trump 	administration, which likely contributed to its slower performance.
-
-	Exempt Economies — Switzerland and Singapore:
-	Within the top 20 importing countries, only Switzerland and Singapore were exempt from the reciprocal tariff measures. 
-	This exemption helps explain Switzerland’s early upward trend 	in import activity during 2025, even though the available data only extends through August.
-
-	Germany’s Decline:
-	Germany, ranked as the fourth-largest importer in 2024, showed a decline in 2025. Like China, Germany did not secure a trade agreement with the Trump administration, and this 
-	absence appears to have weighed on its import levels.
-		
-
+    The analysis of CIF Import Values between <strong>2023 and 2025</strong> reveals how U.S. trade patterns evolved amid shifting global conditions and policy reforms. From 2023 to 2024, total imports increased by <strong>5.9%</strong>, marking steady recovery after COVID. For 2025, we cannot conclude the trend because we only have data until August 2025. There are 232 countries were analyzed. When ranked by import value, the top 30 countries display a relatively stable pattern over time, indicating that the concentration of trade among leading partners has remained consistent year over year. However, there is a noticeable gap between the three largest importers and the rest of the countries.
+  </p>
+  <p>
+    The comparison between <strong>2024 and 2025 CIF import values</strong> highlights how trade policies reshaped U.S. import dynamics. In 2024, import volumes reflected a stable, pre-tariff environment dominated by major partners such as <strong>China, Mexico, and Canada</strong>. By 2025, as <strong>reciprocal tariffs and selective trade deals</strong> took effect, the composition of top-importing countries began to shift: nations granted trade deals or exempt from tariffs generally maintained or increased their export values, while those hit by tariffs experienced noticeable declines.
+  </p>
+  <p>
+    China’s Slower Growth: In 2025, China’s import growth decelerated notably. Among the three leading trading partners, China stands out as the only one without a formal trade deal with the Trump administration, which likely contributed to its slower performance.
+  </p>
+  <p>
+    Exempt Economies — Switzerland and Singapore: Within the top 20 importing countries, only Switzerland and Singapore were exempt from the reciprocal tariff measures. This exemption helps explain Switzerland’s early upward trend in import activity during 2025, even though the available data only extends through August.
+  </p>
+  <p>
+    Germany’s Decline: Germany, ranked as the fourth-largest importer in 2024, showed a decline in 2025. Like China, Germany did not secure a trade agreement with the Trump administration, and this absence appears to have weighed on its import levels.
   </p>
 
-  <hr style="border: 1px solid #ccc; margin: 25px 0;">
+  <hr>
 
-  <h3>📈 <strong>Comparison 2024 to 2025 After Trump Reciprocal Tariff</strong></h3>
-
-    The dual-panel visualization makes this contrast explicit—showing which partners benefited, which were insulated, and
-    which faced contraction—providing a clear, data-driven view of the early economic impact of the Trump administration’s
-    reciprocal-tariff policy.
+  <h3>📈 Comparison 2024 to 2025 After Trump Reciprocal Tariff</h3>
+  <p>
+    The dual-panel visualization makes this contrast explicit—showing which partners benefited, which were insulated, and which faced contraction—providing a clear, data-driven view of the early economic impact of the Trump administration’s reciprocal-tariff policy.
   </p>
 
-  <!-- ✅ Chart inserted before "What the Charts Show" -->
-  <div style="text-align:center; margin:30px 0;">
-    <figure style="display:inline-block; margin:10px;">
-      <img src="figures/CIF Import Comparison (2024-2025).png" 
-           alt="CIF Import Comparison (2024 vs 2025)" 
-           style="max-width:900px; width:100%; border-radius:8px; box-shadow:0 0 8px rgba(0,0,0,0.2);">
+  <div style="text-align:center;">
+    <figure>
+      <img src="figures/CIF Import Comparison (2024-2025).png" alt="CIF Import Comparison (2024 vs 2025)">
       <figcaption><em>Figure: CIF Import Comparison (2024 vs 2025) — Top 20 Countries Colored by Trade Policy</em></figcaption>
     </figure>
   </div>
 
-  <h4>📊 <strong>What the Charts Show</strong></h4>
+  <h4>📊 What the Charts Show</h4>
   <h3>1️⃣ Overall Pattern</h3>
-    <p>
-      The chart compares the <strong>Top 20 U.S. import partners</strong> in <strong>2024 (pre-tariff)</strong> versus 
-      <strong>2025 (post-reciprocal tariff policy)</strong>. 
-      Each country shows two bars:
-      <ul>
-        <li><b>Light blue</b> – 2024 baseline import values</li>
-        <li><b>Dark blue</b> – 2025 updated import values</li>
-      </ul>
-      Colored dots mark each country's trade policy status:
-      <ul>
-        <li>🔵 <b>Deal Country</b> – granted trade deal or tariff exemption</li>
-        <li>🔴 <b>Tariffed Country</b> – subject to reciprocal tariffs</li>
-        <li>🟢 <b>Not-Hit Country</b> – unaffected by tariff policy</li>
-      </ul>
-    </p>
-
-    <h3>2️⃣ Key Insights by Group</h3>
-    <ul>
-      <li>
-        <b>Deal Countries (🔵)</b> — e.g., Mexico, Canada, Japan, South Korea, Malaysia, UK, Thailand, Indonesia.  
-        These partners generally <b>maintained or increased import values</b> in 2025.
-        Mexico and Canada saw the strongest gains, reflecting the advantage of favorable trade agreements.
-      </li>
-      <li>
-        <b>Tariffed Countries (🔴)</b> — e.g., China, Germany, India, France, Italy, Ireland, Brazil, Netherlands.  
-        Most show a <b>visible decline in 2025 imports</b>, particularly China, highlighting direct effects of reciprocal tariffs.
-        European nations also exhibit contraction in industrial import categories.
-      </li>
-      <li>
-        <b>Not-Hit Countries (🟢)</b> — e.g., Switzerland, Singapore.  
-       Switzerland's upward trend in 2025 is especially notable, even though data only extends to August 2025.
-      </li>
-    </ul>
-
-
-<section id="industry-analysis" style="margin: 30px 0;">
-  <h2>🏭 Industry‑Level Analysis </h2>
   <p>
-    	Imports are highly concentrated — the top three industries are Machinery & Electronics, Chemicals & Plastics, 
-    and Transportation & Vehicles) account for over half of total U.S. import value in 2025.
-    Machinery & Electronics remain the dominant import category, reaching about $1.37 trillion (≈27% share in 2025).  
-    This reflects continued U.S. dependence on advanced manufacturing and tech-related imports.
-    	Industry composition helps explain the country‑level movements. Based on product classification from the EDA, 
-	Asia (China, South Korea, Singapore, Japan) — dominated by Machinery & Electronics, reflecting strong industrial 
-	  											  supply chains and technology exports to the U.S.
-
-	Europe (Germany, Switzerland, France) — led by Chemicals & Plastics, particularly pharmaceuticals and chemical products.
-
-	North America (Mexico, Canada) — Transportation & Vehicles dominate, consistent with strong automotive and parts integration 
-	  								  under regional trade deals.
-
-	South America (Brazil) — also shows Machinery & Electronics, suggesting diversification beyond commodities.
-    
-    	The Trump deal network in 2025 is geographically concentrated in North America, East Asia, and selected Western allies,
-	dominated by high-value industrial sectors & technology-oriented: Machinery & Electronics, Transportation & Vehicles, Energy & Fuel.
-	This structure indicates that the U.S. prioritized strategic, industrially advanced partners — securing stable imports in machinery, 
-	electronics, and transportation while reducing exposure to tariff-affected regions like China and South Asia. 
-<!-- 🌍 Interactive Trade Maps Section -->
-<section id="interactive-maps" style="margin: 50px 0;">
-  <h2>🗺️ Dominant Industry Maps by Trade Policy</h2>
-  <p>
-    The following interactive maps illustrate how dominant industries vary across U.S. import partners in 2025,
-    distinguishing between countries with <strong>Trump Deals</strong>, those <strong>without deals</strong>, 
-    and the <strong>Top 20 import partners overall</strong>.
+    The chart compares the <strong>Top 20 U.S. import partners</strong> in <strong>2024 (pre-tariff)</strong> versus <strong>2025 (post-reciprocal tariff policy)</strong>. Each country shows two bars:
   </p>
+  <ul>
+    <li>Light blue – 2024 baseline import values</li>
+    <li>Dark blue – 2025 updated import values</li>
+  </ul>
+  <p>Colored dots mark each country's trade policy status:</p>
+  <ul>
+    <li>🔵 Deal Country – granted trade deal or tariff exemption</li>
+    <li>🔴 Tariffed Country – subject to reciprocal tariffs</li>
+    <li>🟢 Not-Hit Country – unaffected by tariff policy</li>
+  </ul>
 
-<!-- 🌍 CIF Import Analysis — 2023 vs 2025 (Updated with Interactive Maps) -->
-<!-- This version adds the three map iframes before the Industry-Level Analysis section -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🌍 CIF Import Analysis — 2024 vs 2025</title>
-<style>
-  body {font-family:'Segoe UI',Arial,sans-serif;margin:40px auto;max-width:1000px;line-height:1.6;color:#222;background-color:#fff;}
-  h1,h2,h3{color:#004d7a;}
-  img{display:block;margin:25px auto;max-width:100%;height:auto;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.15);}
-  iframe{box-shadow:0 2px 6px rgba(0,0,0,0.1);border-radius:8px;}
-  table{width:100%;border-collapse:collapse;margin:15px 0;}
-  th,td{padding:8px 10px;border:1px solid #ddd;text-align:center;}
-  th{background-color:#f2f2f2;}
-  .center{text-align:center;}
-  .highlight{background-color:#e9f7fe;padding:10px;border-left:4px solid #0077b6;}
-  a{color:#0077b6;text-decoration:none;}a:hover{text-decoration:underline;}
-</style>
-</head>
-<body>
-
-<h1>🌍 CIF Import Analysis — 2023 vs 2025</h1>
-<p><strong>Author:</strong> Utami<br>
-<strong>Project Type:</strong> Exploratory Data Analysis (EDA) & Regression Modeling<br>
-<strong>Live Dashboard:</strong> <a href="https://utamiu1807.github.io/uutami/">GitHub Pages</a><br>
-<strong>Repository:</strong> <a href="https://github.com/utamiu1807/uutami">utamiu1807/uutami</a></p>
+  <h3>2️⃣ Key Insights by Group</h3>
+  <ul>
+    <li><b>Deal Countries (🔵)</b> — e.g., Mexico, Canada, Japan, South Korea, Malaysia, UK, Thailand, Indonesia. These partners generally maintained or increased import values in 2025. Mexico and Canada saw the strongest gains, reflecting the advantage of favorable trade agreements.</li>
+    <li><b>Tariffed Countries (🔴)</b> — e.g., China, Germany, India, France, Italy, Ireland, Brazil, Netherlands. Most show a visible decline in 2025 imports, particularly China, highlighting direct effects of reciprocal tariffs. European nations also exhibit contraction in industrial import categories.</li>
+    <li><b>Not-Hit Countries (🟢)</b> — e.g., Switzerland, Singapore. Switzerland's upward trend in 2025 is especially notable, even though data only extends to August 2025.</li>
+  </ul>
+</section>
 
 <hr>
 
-<!-- 🗺️ Interactive Trade Maps Section (added before Industry Analysis) -->
-<section id="interactive-maps" style="margin: 50px 0;">
+<section id="industry-analysis">
+  <h2>🏭 Industry-Level Analysis</h2>
+  <p>
+    Imports are highly concentrated — the top three industries are Machinery & Electronics, Chemicals & Plastics, and Transportation & Vehicles) account for over half of total U.S. import value in 2025. Machinery & Electronics remain the dominant import category, reaching about $1.37 trillion (≈27% share in 2025). This reflects continued U.S. dependence on advanced manufacturing and tech-related imports.
+  </p>
+  <p>
+    Industry composition helps explain the country-level movements. Based on product classification from the EDA:
+    Asia (China, South Korea, Singapore, Japan) — dominated by Machinery & Electronics, reflecting strong industrial supply chains and technology exports to the U.S.
+  </p>
+  <p>
+    Europe (Germany, Switzerland, France) — led by Chemicals & Plastics, particularly pharmaceuticals and chemical products.
+  </p>
+  <p>
+    North America (Mexico, Canada) — Transportation & Vehicles dominate, consistent with strong automotive and parts integration under regional trade deals.
+  </p>
+  <p>
+    South America (Brazil) — also shows Machinery & Electronics, suggesting diversification beyond commodities.
+  </p>
+  <p>
+    The Trump deal network in 2025 is geographically concentrated in North America, East Asia, and selected Western allies, dominated by high-value industrial sectors & technology-oriented: Machinery & Electronics, Transportation & Vehicles, Energy & Fuel. This structure indicates that the U.S. prioritized strategic, industrially advanced partners — securing stable imports in machinery, electronics, and transportation while reducing exposure to tariff-affected regions like China and South Asia.
+  </p>
+</section>
+
+<hr>
+
+<section id="interactive-maps">
   <h2>🗺️ Dominant Industry Maps by Trade Policy</h2>
   <p>
-    The following interactive maps illustrate how dominant industries vary across U.S. import partners in 2025,
-    distinguishing between countries with <strong>Trump Deals</strong>, those <strong>without deals</strong>, 
-    and the <strong>Top 20 import partners overall</strong>.
+    The following interactive maps illustrate how dominant industries vary across U.S. import partners in 2025, distinguishing between countries with <strong>Trump Deals</strong>, those <strong>without deals</strong>, and the <strong>Top 20 import partners overall</strong>.
   </p>
 
-  <!-- 🔵 Trump Deal and No Deal side-by-side -->
   <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; margin:40px 0;">
     <div style="flex:1 1 48%; text-align:center;">
       <h3>1️⃣ Dominant Industries — Trump Deal Countries</h3>
-      <iframe src="figures/Dominant_Industry_Trump_Deal_Map.html" width="100%" height="500" style="border:1px solid #ccc;"></iframe>
+      <iframe src="figures/Dominant_Industry_Trump_Deal_Map.html" width="100%" height="500"></iframe>
     </div>
     <div style="flex:1 1 48%; text-align:center;">
       <h3>2️⃣ Dominant Industries — No Trump Deal Countries</h3>
-      <iframe src="figures/Dominant_Industry_No_Trump_Deal_Map.html" width="100%" height="500" style="border:1px solid #ccc;"></iframe>
+      <iframe src="figures/Dominant_Industry_No_Trump_Deal_Map.html" width="100%" height="500"></iframe>
     </div>
   </div>
 
-	  <p>
-    Across countries that have made deal with President Trump, the dominant sectors are capital-intensive and technology-oriented: Machinery & Electronics, Transportation & Vehicles Energy & Fuel.
-	In contrast, consumer and low-cost manufacturing sectors (e.g., agriculture & food, textiles, food) are mostly outside the deal group, 
-	emphasizing a policy-driven realignment toward advanced industrial allies.
+  <p>
+    Across countries that have made deal with President Trump, the dominant sectors are capital-intensive and technology-oriented: Machinery & Electronics, Transportation & Vehicles, Energy & Fuel. In contrast, consumer and low-cost manufacturing sectors (e.g., agriculture & food, textiles, food) are mostly outside the deal group, emphasizing a policy-driven realignment toward advanced industrial allies.
   </p>
-	
-  <!-- 🌐 Top 20 Countries Full Width -->
+
   <div style="text-align:center; margin:40px 0;">
     <h3>3️⃣ Dominant Industries — Top 20 Countries</h3>
-    <iframe src="figures/Dominant_Industry_Top_20_Countries_Map.html" width="100%" height="600" style="border:1px solid #ccc;"></iframe>
+    <iframe src="figures/Dominant_Industry_Top_20_Countries_Map.html" width="100%" height="600"></iframe>
   </div>
 </section>
-
-
-The map shows distinct regional dominance by industry:
-
-Asia (China, South Korea, Singapore, Japan) — dominated by Machinery & Electronics, reflecting strong industrial supply chains and technology exports to the U.S.
-
-Europe (Germany, Switzerland, France) — led by Chemicals & Plastics, particularly pharmaceuticals and chemical products.
-
-North America (Mexico, Canada) — Transportation & Vehicles dominate, consistent with strong automotive and parts integration under regional trade deals.
-
-South America (Brazil) — also shows Machinery & Electronics, suggesting diversification beyond commodities.
-
-Southeast Asia (Indonesia, Vietnam) — strong in Textiles & Apparel, reflecting their role in low-cost manufacturing.""")
-
-</body>
-</html>
-
-<!-- 🌍 Interactive Trade Maps Section -->
-<section id="interactive-maps" style="margin: 50px 0;">
-  <h2>🗺️ Dominant Industry Maps by Trade Policy</h2>
-  <p>
-    The following interactive maps illustrate how dominant industries vary across U.S. import partners in 2025,
-    distinguishing between countries with <strong>Trump Deals</strong>, those <strong>without deals</strong>, 
-    and the <strong>Top 20 import partners overall</strong>.
-  </p>
-
-  <div style="text-align:center; margin:30px 0;">
-    <h3>1️⃣ Dominant Industries — Trump Deal Countries</h3>
-    <iframe src="figures/Dominant_Industry_Trump_Deal_Map.html" 
-            width="100%" height="600" style="border:1px solid #ccc; border-radius:8px;">
-    </iframe>
-  </div>
-
-  <div style="text-align:center; margin:30px 0;">
-    <h3>2️⃣ Dominant Industries — No Trump Deal Countries</h3>
-    <iframe src="figures/Dominant_Industry_No_Trump_Deal_Map.html" 
-            width="100%" height="600" style="border:1px solid #ccc; border-radius:8px;">
-    </iframe>
-  </div>
-
-  <div style="text-align:center; margin:30px 0;">
-    <h3>3️⃣ Dominant Industries — Top 20 Countries</h3>
-    <iframe src="figures/Dominant_Industry_Top_20_Countries_Map.html" 
-            width="100%" height="600" style="border:1px solid #ccc; border-radius:8px;">
-    </iframe>
-  </div>
-</section>
-
-
 
 <hr>
 
-  <h4>💡 <strong>Key Findings</strong></h4>
+<section id="key-findings">
+  <h2>💡 Key Findings</h2>
   <ul>
-    <li><strong>Policy reshaped trade patterns:</strong> The introduction of reciprocal tariffs in 2025 led to a visible
-      redistribution of U.S. import sources, as shown by the divergence in bar lengths between 2024 and 2025.
-    </li>
-    <li><strong>Deal and Not-Hit countries held steady or expanded:</strong> Nations with trade deals or unaffected by tariffs—
-      notably <strong>Mexico and Canada</strong> remain the leading importers. While Switzerland's upward trend in 2025 is especially notable, even though data only extends to August 2025.
-    </li>
-    <li><strong>Tariffed countries faced contraction:</strong> Major exporters subjected to tariffs, such as <strong>China and Germany</strong>,
-      showed noticeable declines in CIF import totals relative to 2024.
-    </li>
-    <li><strong>The regression indicates that tariff or deal variables did not meaningfully explain 2024–2025 CIF import changes.
-     Import trends appear driven by other macro or market factors, not policy classifications.
-    <li><strong>Policy signals mattered more than volume:</strong> The presence or absence of tariff protection correlated more strongly with import changes than sheer trade size—highlighting how
-      <strong>policy expectations influenced trade behavior</strong>.
-  <li><strong>The Trump deal network in 2025 is geographically concentrated in North America, East Asia, and selected Western allies, dominated by high-value industrial sectors.
-    This structure indicates that the U.S. prioritized strategic, industrially advanced partners — securing stable imports in machinery, electronics, and transportation while reducing exposure to tariff-affected regions like China and South Asia.
-  <li><strong>Limitation of this analysis: There are 10 category for goods imported, which HTS 2, HTS 4, HTS 6, HTS 8, and HTS 10. For this analysis, I only using data for HTS 2 and HTS 4.For 2025, There is only available data until August 2025.Regional diversification emerged:</strong> Some Asian and non-EU exporters rose in rank, suggesting early
-      signs of supply-chain adjustment as importers sought tariff-neutral markets.
+    <li><strong>Policy reshaped trade patterns:</strong> The introduction of reciprocal tariffs in 2025 led to a visible redistribution of U.S. import sources, as shown by the divergence in bar lengths between 2024 and 2025.</li>
+    <li><strong>Deal and Not-Hit countries held steady or expanded:</strong> Nations with trade deals or unaffected by tariffs— notably <strong>Mexico and Canada</strong> remain the leading importers. While Switzerland's upward trend in 2025 is especially notable, even though data only extends to August 2025.</li>
+    <li><strong>Tariffed countries faced contraction:</strong> Major exporters subjected to tariffs, such as <strong>China and Germany</strong>, showed noticeable declines in CIF import totals relative to 2024.</li>
+    <li><strong>The regression indicates that tariff or deal variables did not meaningfully explain 2024–2025 CIF import changes.</strong> Import trends appear driven by other macro or market factors, not policy classifications.</li>
+    <li><strong>Policy signals mattered more than volume:</strong> The presence or absence of tariff protection correlated more strongly with import changes than sheer trade size—highlighting how policy expectations influenced trade behavior.</li>
+    <li><strong>The Trump deal network in 2025 is geographically concentrated</strong> in North America, East Asia, and selected Western allies, dominated by high-value industrial sectors. This structure indicates that the U.S. prioritized strategic, industrially advanced partners — securing stable imports in machinery, electronics, and transportation while reducing exposure to tariff-affected regions like China and South Asia.</li>
+    <li><strong>Limitation of this analysis:</strong> There are 10 category for goods imported, which HTS 2, HTS 4, HTS 6, HTS 8, and HTS 10. For this analysis, I only using data for HTS 2 and HTS 4. For 2025, There is only available data until August 2025. Regional diversification emerged: Some Asian and non-EU exporters rose in rank, suggesting early signs of supply-chain adjustment as importers sought tariff-neutral markets.</li>
   </ul>
-
-  <hr style="border: 1px solid #ccc; margin: 30px 0;">
 </section>
-
-  <div style="text-align:center; margin:20px auto 40px auto;">
-    <table style="border-collapse:collapse; margin:auto; font-size:15px; box-shadow:0 0 8px rgba(0,0,0,0.1);">
-      <thead style="background:#f3f3f3;">
-        <tr>
-          <th>Trade Policy Category</th>
-          <th>Count of Countries (Top 20)</th>
-          <th>Examples</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>🔵 Deal Country</td><td><strong>5</strong></td><td>Mexico, Canada, Japan, Malaysia, United Kingdom</td></tr>
-        <tr><td>🟢 Not-Hit Country</td><td><strong>2</strong></td><td>Switzerland, Singapore</td></tr>
-        <tr><td>🔴 Tariffed Country</td><td><strong>13</strong></td><td>China, Germany, France, India, Italy, Brazil, others</td></tr>
-      </tbody>
-    </table>
-    <p style="font-size:13px; color:#555; margin-top:8px;"><em>Table: Distribution of Top 20 Importing Countries by Policy Classification (2025)</em></p>
-  </div>
 
 <hr>
 
+<div style="text-align:center;">
+  <table>
+    <thead>
+      <tr>
+        <th>Trade Policy Category</th>
+        <th>Count of Countries (Top 20)</th>
+        <th>Examples</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>🔵 Deal Country</td><td><strong>5</strong></td><td>Mexico, Canada, Japan, Malaysia, United Kingdom</td></tr>
+      <tr><td>🟢 Not-Hit Country</td><td><strong>2</strong></td><td>Switzerland, Singapore</td></tr>
+      <tr><td>🔴 Tariffed Country</td><td><strong>13</strong></td><td>China, Germany, France, India, Italy, Brazil, others</td></tr>
+    </tbody>
+  </table>
+  <p><em>Table: Distribution of Top 20 Importing Countries by Policy Classification (2025)</em></p>
+</div>
 
-  
-  
+<hr>
+
 <h2>📊 Visual Insights</h2>
-
-
 <img src="figures/top 20 cif prioritized.png" alt="Top 20 CIF Prioritized by Policy">
-
-  
 <img src="figures/Top 30 Countries — U.S. CIF Import Value Trend (2023–2025).png" alt="Top 30 Countries Import Trend 2023–2025">
-
-  
 <img src="figures/top 30 countries (1).png" alt="Top 30 Countries Combined Chart">
 
-<p>➡️ View the full EDA notebook: <a href="https://github.com/utamiu1807/uutami/blob/main/Final_EDA1%262_UTAMIipynb.ipynb">Final_EDA1&2_UTAMIipynb.ipynb</a></p>
+<p>➡️ View the full EDA notebook: 
+<a href="https://github.com/utamiu1807/uutami/blob/main/Final_EDA1%262_UTAMIipynb.ipynb">Final_EDA1&2_UTAMIipynb.ipynb</a></p>
 
 </body>
 </html>
