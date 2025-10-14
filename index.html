@@ -180,48 +180,88 @@
     and the <strong>Top 20 import partners overall</strong>.
   </p>
 
-  <div style="text-align:center; margin:30px 0;">
-    <h3>1️⃣ Dominant Industries — Trump Deal Countries</h3>
-    <iframe src="figures/Dominant_Industry_Trump_Deal_Map.html" 
-            width="100%" height="600" style="border:1px solid #ccc; border-radius:8px;">
-    </iframe>
+<!-- 🌍 CIF Import Analysis — 2023 vs 2025 (Updated with Interactive Maps) -->
+<!-- This version adds the three map iframes before the Industry-Level Analysis section -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌍 CIF Import Analysis — 2024 vs 2025</title>
+<style>
+  body {font-family:'Segoe UI',Arial,sans-serif;margin:40px auto;max-width:1000px;line-height:1.6;color:#222;background-color:#fff;}
+  h1,h2,h3{color:#004d7a;}
+  img{display:block;margin:25px auto;max-width:100%;height:auto;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.15);}
+  iframe{box-shadow:0 2px 6px rgba(0,0,0,0.1);border-radius:8px;}
+  table{width:100%;border-collapse:collapse;margin:15px 0;}
+  th,td{padding:8px 10px;border:1px solid #ddd;text-align:center;}
+  th{background-color:#f2f2f2;}
+  .center{text-align:center;}
+  .highlight{background-color:#e9f7fe;padding:10px;border-left:4px solid #0077b6;}
+  a{color:#0077b6;text-decoration:none;}a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<h1>🌍 CIF Import Analysis — 2023 vs 2025</h1>
+<p><strong>Author:</strong> Utami<br>
+<strong>Project Type:</strong> Exploratory Data Analysis (EDA) & Regression Modeling<br>
+<strong>Live Dashboard:</strong> <a href="https://utamiu1807.github.io/uutami/">GitHub Pages</a><br>
+<strong>Repository:</strong> <a href="https://github.com/utamiu1807/uutami">utamiu1807/uutami</a></p>
+
+<hr>
+
+<!-- 🗺️ Interactive Trade Maps Section (added before Industry Analysis) -->
+<section id="interactive-maps" style="margin: 50px 0;">
+  <h2>🗺️ Dominant Industry Maps by Trade Policy</h2>
+  <p>
+    The following interactive maps illustrate how dominant industries vary across U.S. import partners in 2025,
+    distinguishing between countries with <strong>Trump Deals</strong>, those <strong>without deals</strong>, 
+    and the <strong>Top 20 import partners overall</strong>.
+  </p>
+
+  <!-- 🔵 Trump Deal and No Deal side-by-side -->
+  <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; margin:40px 0;">
+    <div style="flex:1 1 48%; text-align:center;">
+      <h3>1️⃣ Dominant Industries — Trump Deal Countries</h3>
+      <iframe src="figures/Dominant_Industry_Trump_Deal_Map.html" width="100%" height="500" style="border:1px solid #ccc;"></iframe>
+    </div>
+    <div style="flex:1 1 48%; text-align:center;">
+      <h3>2️⃣ Dominant Industries — No Trump Deal Countries</h3>
+      <iframe src="figures/Dominant_Industry_No_Trump_Deal_Map.html" width="100%" height="500" style="border:1px solid #ccc;"></iframe>
+    </div>
   </div>
 
-  <div style="text-align:center; margin:30px 0;">
-    <h3>2️⃣ Dominant Industries — No Trump Deal Countries</h3>
-    <iframe src="figures/Dominant_Industry_No_Trump_Deal_Map.html" 
-            width="100%" height="600" style="border:1px solid #ccc; border-radius:8px;">
-    </iframe>
-  </div>
-
-  <div style="text-align:center; margin:30px 0;">
+	  <p>
+    Across countries that have made deal with President Trump, the dominant sectors are capital-intensive and technology-oriented: Machinery & Electronics, Transportation & Vehicles Energy & Fuel.
+	In contrast, consumer and low-cost manufacturing sectors (e.g., agriculture & food, textiles, food) are mostly outside the deal group, 
+	emphasizing a policy-driven realignment toward advanced industrial allies.
+  </p>
+	
+  <!-- 🌐 Top 20 Countries Full Width -->
+  <div style="text-align:center; margin:40px 0;">
     <h3>3️⃣ Dominant Industries — Top 20 Countries</h3>
-    <iframe src="figures/Dominant_Industry_Top_20_Countries_Map.html" 
-            width="100%" height="600" style="border:1px solid #ccc; border-radius:8px;">
-    </iframe>
+    <iframe src="figures/Dominant_Industry_Top_20_Countries_Map.html" width="100%" height="600" style="border:1px solid #ccc;"></iframe>
   </div>
 </section>
 
 
-  </p>
+The map shows distinct regional dominance by industry:
 
-  <div style="text-align:center; margin:20px 0;">
-    <figure style="display:inline-block; margin:10px;">
-      <img src="https://raw.githubusercontent.com/utamiu1807/uutami/main/figures/Top_10_Industries_2025.png" 
-           alt="Top 10 Industries by CIF Import Value — 2025" 
-           style="max-width:900px; width:100%; border-radius:8px; box-shadow:0 0 8px rgba(0,0,0,0.2);">
-      <figcaption><em>Figure: Top 10 Industries by CIF Import Value — 2025</em></figcaption>
-    </figure>
-  </div>
+Asia (China, South Korea, Singapore, Japan) — dominated by Machinery & Electronics, reflecting strong industrial supply chains and technology exports to the U.S.
 
-  <div style="text-align:center; margin:10px 0 30px 0;">
-    <figure style="display:inline-block; margin:10px;">
-      <img src="https://raw.githubusercontent.com/utamiu1807/uutami/main/figures/Industry_YOY_Change_2023_2025.png" 
-           alt="YoY % Change by Industry, 2023–2025" 
-           style="max-width:900px; width:100%; border-radius:8px; box-shadow:0 0 8px rgba(0,0,0,0.2);">
-      <figcaption><em>Figure: Year‑over‑Year % Change by Industry (2023→2024→2025)</em></figcaption>
-    </figure>
-  </div>
+Europe (Germany, Switzerland, France) — led by Chemicals & Plastics, particularly pharmaceuticals and chemical products.
+
+North America (Mexico, Canada) — Transportation & Vehicles dominate, consistent with strong automotive and parts integration under regional trade deals.
+
+South America (Brazil) — also shows Machinery & Electronics, suggesting diversification beyond commodities.
+
+Southeast Asia (Indonesia, Vietnam) — strong in Textiles & Apparel, reflecting their role in low-cost manufacturing.""")
+
+</body>
+</html>
+
 <!-- 🌍 Interactive Trade Maps Section -->
 <section id="interactive-maps" style="margin: 50px 0;">
   <h2>🗺️ Dominant Industry Maps by Trade Policy</h2>
@@ -270,16 +310,12 @@
     </li>
     <li><strong>The regression indicates that tariff or deal variables did not meaningfully explain 2024–2025 CIF import changes.
      Import trends appear driven by other macro or market factors, not policy classifications.
-*    Policy signals mattered more than volume:</strong> The presence or absence of tariff protection correlated more strongly with import changes than sheer trade size—highlighting how
-      <strong>policy expectations influenced trade behavior</strong>.Summarize the overall import trend from 2023-2025.
-*   The Trump deal network in 2025 is geographically concentrated in North America, East Asia, and selected Western allies, dominated by high-value industrial sectors.
-    This structure indicates that the U.S. prioritized strategic, industrially advanced partners — securing stable imports in machinery, electronics, and transportation while reducing exposure to tariff-affected regions like China and South Asia.
-*   Limitation of this analysis: There are 10 category for goods imported, which HTS 2, HTS 4, HTS 6, HTS 8, and HTS 10. For this analysis, I only using data for HTS 2 and HTS 4.For 2025, There is only available data until August 2025.Regional diversification emerged:</strong> Some Asian and non-EU exporters rose in rank, suggesting early
-      signs of supply-chain adjustment as importers sought tariff-neutral markets.
-    </li>
     <li><strong>Policy signals mattered more than volume:</strong> The presence or absence of tariff protection correlated more strongly with import changes than sheer trade size—highlighting how
       <strong>policy expectations influenced trade behavior</strong>.
-    </li>
+  <li><strong>The Trump deal network in 2025 is geographically concentrated in North America, East Asia, and selected Western allies, dominated by high-value industrial sectors.
+    This structure indicates that the U.S. prioritized strategic, industrially advanced partners — securing stable imports in machinery, electronics, and transportation while reducing exposure to tariff-affected regions like China and South Asia.
+  <li><strong>Limitation of this analysis: There are 10 category for goods imported, which HTS 2, HTS 4, HTS 6, HTS 8, and HTS 10. For this analysis, I only using data for HTS 2 and HTS 4.For 2025, There is only available data until August 2025.Regional diversification emerged:</strong> Some Asian and non-EU exporters rose in rank, suggesting early
+      signs of supply-chain adjustment as importers sought tariff-neutral markets.
   </ul>
 
   <hr style="border: 1px solid #ccc; margin: 30px 0;">
