@@ -134,6 +134,78 @@
 
 <hr>
 
+
+<section id="methodology">
+  <h2>🧪 Methodology</h2>
+
+  <h3>3.1 Data Sources</h3>
+  <p>
+    This analysis uses U.S. import data (CIF values) covering the period <strong>2023–2025</strong>. The dataset includes:
+  </p>
+  <ul>
+    <li>Monthly CIF import values by country</li>
+    <li>HS codes at different levels of detail (HTS 2 and HTS 4 used in this project)</li>
+    <li>Country-level trade information for 232 partners</li>
+    <li>Custom policy labels indicating whether each country is in a <strong>Deal</strong>, <strong>Tariffed</strong>, or <strong>Not-Hit</strong> group under the Trump reciprocal tariff policy in 2025</li>
+  </ul>
+
+  <h3>3.2 Industry Sector Classification (API-Based)</h3>
+  <p>
+    Industry sector labels in this project are generated through <strong>API-based metadata retrieval</strong>, not through OpenAI or other LLM classification. External APIs are used to obtain official HS metadata, including:
+  </p>
+  <ul>
+    <li>HS product descriptions</li>
+    <li>HS chapter and subchapter information</li>
+    <li>Sector or industry group mapping (e.g., Machinery &amp; Electronics, Chemicals &amp; Plastics, Transportation &amp; Vehicles)</li>
+  </ul>
+  <p>
+    These fields are merged into the CIF dataset by matching on HS codes. As a result, the industry classification is aligned with established trade-taxonomy standards and remains fully reproducible. No AI-generated labels are used in this step.
+  </p>
+
+  <h3>3.3 Data Cleaning and Integration</h3>
+  <p>
+    Before analysis and visualization, several preprocessing steps are applied:
+  </p>
+  <ul>
+    <li>Standardizing country codes and names to a consistent format</li>
+    <li>Filtering to HTS 2 and HTS 4 levels for tractable and meaningful aggregation</li>
+    <li>Handling missing values and removing obviously erroneous records</li>
+    <li>Aggregating CIF values by country, year, and industry sector</li>
+    <li>Calculating percent changes between 2023–2024 and 2024–2025 for each country and industry</li>
+  </ul>
+
+  <h3>3.4 Exploratory Data Analysis (EDA)</h3>
+  <p>
+    EDA is conducted in Python using <strong>pandas, matplotlib, and seaborn</strong>. Key steps include:
+  </p>
+  <ul>
+    <li>Ranking countries by total CIF import value to identify top partners</li>
+    <li>Comparing trends across 2023–2025 to capture recovery and disruption patterns</li>
+    <li>Grouping countries into policy categories (Deal, Tariffed, Not-Hit) and comparing their import trajectories</li>
+    <li>Aggregating CIF values by industry to understand sectoral concentration and shifts</li>
+    <li>Building correlation and regression models to test whether policy variables help explain changes in import values</li>
+  </ul>
+
+  <h3>3.5 Visualization</h3>
+  <p>
+    Static and interactive visualizations are used to communicate the results:
+  </p>
+  <ul>
+    <li><strong>Bar and line charts</strong> to show trends for the Top 20 and Top 30 import partners over time</li>
+    <li><strong>Side-by-side bar charts</strong> to compare 2024 vs 2025 CIF values by country, with policy status highlighted</li>
+    <li><strong>Interactive choropleth maps</strong> to display dominant industries by country and policy group</li>
+    <li><strong>Summary tables</strong> to show the distribution of countries across Deal, Tariffed, and Not-Hit categories</li>
+  </ul>
+  <p>
+    All figures and maps displayed on this page are generated directly from the cleaned dataset and Python EDA notebooks linked at the bottom of the page.
+  </p>
+</section>
+<!-- 🔼 END OF NEW METHODOLOGY SECTION 🔼 -->
+
+<hr>
+
+
+  
 <section id="industry-analysis">
   <h2>🏭 Industry-Level Analysis</h2>
   <p>
